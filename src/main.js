@@ -198,55 +198,79 @@ function drawBarChart(canvasId, data) {
 
   const w = rect.width;
   const h = rect.height;
-  const padding = { top: 10, right: 10, bottom: 30, left: 10 };
+  
+  // Generous padding so text doesn't clip
+  const padding = { top: 30, right: 20, bottom: 35, left: 20 };
   const chartW = w - padding.left - padding.right;
   const chartH = h - padding.top - padding.bottom;
+  
   const barCount = data.values.length;
-  const barGap = Math.max(4, chartW * 0.03);
-  const barWidth = (chartW - barGap * (barCount + 1)) / barCount;
+  // Dynamic gap depending on number of bars
+  const gapRatio = barCount > 6 ? 0.4 : 0.6; // More gap if fewer bars
+  const totalBarSpace = chartW / barCount;
+  const barWidth = Math.min(totalBarSpace * (1 - gapRatio), 40);
+  const barGap = totalBarSpace * gapRatio;
+  
+  // Center the chart horizontally
+  const startX = padding.left + (chartW - (barCount * barWidth + (barCount - 1) * barGap)) / 2;
+
+  // Add 15% headroom above max value for text
   const maxVal = Math.max(...data.values) * 1.15;
 
-  // Animate bars
   let progress = 0;
-  const animDuration = 800;
+  const animDuration = 900;
   const startTime = performance.now();
 
   function draw(now) {
     const elapsed = now - startTime;
     progress = Math.min(elapsed / animDuration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
+    const eased = 1 - Math.pow(1 - progress, 3); // Cubic ease out
 
     ctx.clearRect(0, 0, w, h);
 
+    // Baseline grid (bottom line)
+    ctx.strokeStyle = '#2a3b4c';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padding.left, h - padding.bottom);
+    ctx.lineTo(w - padding.right, h - padding.bottom);
+    ctx.stroke();
+
     // Draw bars
     data.values.forEach((val, i) => {
-      const barH = (val / maxVal) * chartH * eased;
-      const x = padding.left + barGap + i * (barWidth + barGap);
-      const y = padding.top + chartH - barH;
+      // Minimum bar height so 0 values still show a tiny dot or just nothing
+      const targetBarH = val > 0 ? (val / maxVal) * chartH : 0;
+      const barH = targetBarH * eased;
+      const x = startX + i * (barWidth + barGap);
+      const y = h - padding.bottom - barH;
 
-      // Gradient bar
-      const grad = ctx.createLinearGradient(x, y, x, padding.top + chartH);
-      grad.addColorStop(0, data.color);
-      grad.addColorStop(1, data.color + '44');
-      ctx.fillStyle = grad;
-      ctx.beginPath();
-      roundRect(ctx, x, y, barWidth, barH, 4);
-      ctx.fill();
-
-      // Value on top
-      if (progress > 0.8) {
-        ctx.fillStyle = '#c8d4e0';
-        ctx.font = `${Math.max(8, barWidth * 0.28)}px Inter, sans-serif`;
-        ctx.textAlign = 'center';
-        const valText = val >= 100 ? Math.round(val).toString() : val.toFixed(0);
-        ctx.fillText(valText, x + barWidth / 2, y - 4);
+      if (barH > 0) {
+        // Gradient bar
+        const grad = ctx.createLinearGradient(x, y, x, y + barH);
+        grad.addColorStop(0, data.color);
+        grad.addColorStop(1, data.color + '66'); 
+        ctx.fillStyle = grad;
+        
+        ctx.beginPath();
+        // Just round the top corners
+        roundRect(ctx, x, y, barWidth, barH, Math.min(4, barWidth / 2));
+        ctx.fill();
       }
 
-      // Label below
-      ctx.fillStyle = '#667788';
-      ctx.font = `${Math.max(7, barWidth * 0.26)}px Inter, sans-serif`;
+      // Value on top
+      if (progress > 0.8 && val > 0) {
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `600 ${Math.max(10, Math.min(12, barWidth * 0.5))}px Inter, sans-serif`;
+        ctx.textAlign = 'center';
+        const valText = val >= 100 ? Math.round(val).toString() : val.toFixed(0);
+        ctx.fillText(valText, x + barWidth / 2, y - 8);
+      }
+
+      // Label below axis
+      ctx.fillStyle = '#8899aa';
+      ctx.font = `500 ${Math.max(9, Math.min(11, barWidth * 0.4))}px Inter, sans-serif`;
       ctx.textAlign = 'center';
-      ctx.fillText(data.labels[i], x + barWidth / 2, padding.top + chartH + 16);
+      ctx.fillText(data.labels[i], x + barWidth / 2, h - padding.bottom + 16);
     });
 
     if (progress < 1) {
