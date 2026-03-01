@@ -148,15 +148,16 @@ img {
 }
 
 .nav-logo-icon {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: auto;
 }
 
 .nav-logo-text {
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: -0.02em;
-  color: var(--teal);
+  font-weight: 900;
+  font-size: 1.75rem;
+  letter-spacing: -0.06em;
+  color: white; /* was var(--teal) */
+  margin-left: -4px;
 }
 
 .nav-links {
@@ -347,13 +348,12 @@ img {
 .screen-app-header {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin-bottom: 12px;
 }
 
 .screen-app-logo {
-  width: 22px;
-  height: 22px;
+  width: 30px;
   flex-shrink: 0;
 }
 
@@ -1823,16 +1823,21 @@ section {
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-size: 1.25rem;
-  color: var(--teal);
+  font-weight: 900;
+  font-size: 1.75rem;
+  letter-spacing: -0.06em;
+  color: white;
   margin-bottom: 12px;
+  gap: 10px;
+}
+
+.footer-logo span {
+  margin-left: -4px;
 }
 
 .footer-logo-icon {
-  width: 28px;
-  height: 28px;
+  width: 36px;
+  height: auto;
 }
 
 .footer-tagline {

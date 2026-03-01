@@ -1,0 +1,13 @@
+<svg viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-logo-icon">
+  <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="rgba(0,0,0,0.15)"
+    transform="translate(2, 2)" />
+  <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="#10b981" stroke="#065f46"
+    stroke-width="2.5" />
+  <text x="45" y="40" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="38" font-weight="900"
+    font-family="Inter">P</text>
+  <g transform="translate(25, 58)">
+    <rect width="40" height="3.5" rx="1.75" fill="white" fill-opacity="1" />
+    <rect y="9" width="28" height="3.5" rx="1.75" fill="white" fill-opacity="0.6" />
+    <rect y="18" width="35" height="3.5" rx="1.75" fill="white" fill-opacity="0.3" />
+  </g>
+</svg>
