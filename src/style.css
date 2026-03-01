@@ -154,7 +154,7 @@ img {
 
 .nav-logo-text {
   font-weight: 900;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   letter-spacing: -0.06em;
   color: white; /* was var(--teal) */
   margin-left: -4px;
@@ -1824,7 +1824,7 @@ section {
   display: flex;
   align-items: center;
   font-weight: 900;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   letter-spacing: -0.06em;
   color: white;
   margin-bottom: 12px;
