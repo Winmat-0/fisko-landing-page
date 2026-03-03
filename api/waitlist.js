@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 
     const { data, error } = await resend.emails.send({
       from: 'POCKET Waitlist <onboarding@resend.dev>', 
-      to: 'matimouzk@gmial.com',
+      to: email,
       subject: 'Dołączyłeś do POCKET. Teraz paragon rządzi budżetem 🔍',
       html: `
          <div style="background:#020617; padding:32px 24px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; color:#e5e7eb;">
@@ -92,8 +92,8 @@ export default async function handler(req, res) {
     });
 
     if (error) {
-      console.error('Błąd Resend API:', error);
-      return res.status(400).json({ error: 'Nie udało się zapisać komunikatu w Resend. Sprawdź logi serwera.' });
+      console.error('Błąd Resend API:', error.message || error);
+      return res.status(400).json({ error: `Odrzucono przez Resend: ${error.message}` });
     }
 
     return res.status(200).json({ success: true, message: 'Adres email pomyślnie dopisany!' });
