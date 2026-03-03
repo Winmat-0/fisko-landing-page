@@ -453,6 +453,9 @@ function initWaitlistForms() {
         messageEl.style.color = 'var(--teal)';
         form.reset();
         
+        // Odśwież dynamiczny licznik by podbić satysfakcję użytkownika w czasie rzeczywistym
+        updateWaitlistCount();
+        
       } catch (err) {
         // Obłsuga błędu HTTP
         messageEl.textContent = err.message || 'Wystąpił niespodziewany błąd.';
@@ -468,6 +471,35 @@ function initWaitlistForms() {
   });
 }
 
+// --- Dynamic Waitlist Counter ---
+async function updateWaitlistCount() {
+  const countSpan = document.getElementById('dynamic-waitlist-count');
+  if (!countSpan) return;
+  
+  try {
+    const res = await fetch('/api/waitlist-count');
+    const data = await res.json();
+    
+    if (data.count) {
+      const start = parseInt(countSpan.textContent) || 120;
+      const end = data.count;
+      if (start === end) return;
+      
+      let current = start;
+      const step = end > start ? 1 : -1;
+      const interval = setInterval(() => {
+        current += step;
+        countSpan.textContent = current;
+        if (current === end) {
+          clearInterval(interval);
+        }
+      }, 30); // Szybka animacja przewijania cyfr
+    }
+  } catch (err) {
+    console.error('Nie udało się pobrać licznika oczekujących:', err);
+  }
+}
+
 // --- Init all ---
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
@@ -479,6 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPlannerAnimation();
   initPlannerInteraction();
   initWaitlistForms();
+  updateWaitlistCount();
 
   // Resize handler for charts
   window.addEventListener('resize', () => {
