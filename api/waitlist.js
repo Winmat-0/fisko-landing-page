@@ -1,9 +1,16 @@
+import { createClient } from '@supabase/supabase-js';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
+  // Weryfikacja środowiska bazy danych Supabase
+  if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
+    console.error('BŁĄD: Brak zmiennych konfiguracyjnych SUPABASE_URL lub SUPABASE_ANON_KEY.');
+    return res.status(500).json({ error: 'Brak aktywnego połączenia z serwerami bazy danych formularza.' });
   }
 
   // Weryfikacja haseł aplikacji Gmail
@@ -19,6 +26,23 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Adres email jest wymagany.' });
     }
 
+    // --- ZAPIS DO BAZY SUPABASE ---
+    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
+    
+    const { error: dbError } = await supabase
+      .from('waitlist')
+      .insert([{ email }]);
+
+    if (dbError) {
+      // 23505 oznacza "unique violation" (zduplikowany wpis) w bazach typu PostgreSQL
+      if (dbError.code === '23505') {
+         return res.status(400).json({ error: 'Ten adres e-mail zapisał się już na premierę POCKET!' });
+      }
+      console.error('Błąd Supabase:', dbError);
+      return res.status(500).json({ error: 'Zanotowano nieoczekiwany błąd podczas wstawiania danych do bazy.' });
+    }
+
+    // --- PROCEDURA WYSYŁKI E-MAIL ---
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
       port: 465,
