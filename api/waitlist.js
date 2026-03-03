@@ -1,12 +1,18 @@
-const { Resend } = require('resend');
+import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
+
+  // Weryfikacja klucza i miękki odrzut żądania w przeciwnym razie
+  if (!process.env.RESEND_API_KEY) {
+    console.error('BŁĄD: Brak klucza RESEND_API_KEY! Należy dodać zmienną Env i wykonać Redeploy na koncie Vercel.');
+    return res.status(500).json({ error: 'Brak aktywnego klucza API od strony serwera.' });
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const { email } = req.body;
