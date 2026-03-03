@@ -2081,6 +2081,28 @@ details[open] .faq-question::after {
   line-height: 1.6;
 }
 
+/* --- Resend API Form States --- */
+.form-message {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+  min-height: 24px;
+  transition: color 0.3s var(--ease);
+  width: 100%;
+}
+
+.btn-loader {
+  font-size: 0.95rem;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
 /* ====================================
    RESPONSIVE
    ==================================== */

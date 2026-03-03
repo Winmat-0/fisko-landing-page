@@ -173,20 +173,22 @@
               Aplikacja, która automatycznie ogarnia Twój budżet domowy dzięki wbudowanemu Asystentowi AI. Aktualnie w zamkniętych testach na iOS i Android.
             </p>
             <div class="hero-waitlist reveal">
-              <form class="waitlist-form" action="#" method="POST" aria-label="Zapisz się na wczesny dostęp">
+              <form class="waitlist-form" id="waitlist-form-hero" aria-label="Zapisz się na wczesny dostęp">
                 <label for="hero-email" class="sr-only">Adres e-mail</label>
                 <div class="waitlist-input-group">
                   <input type="email" id="hero-email" name="email" placeholder="Twój adres e-mail" required class="waitlist-input">
                   <button type="submit" class="btn-primary btn-glow waitlist-btn">
-                    Dołącz do kolejki
+                    <span class="btn-text">Dołącz do kolejki</span>
+                    <span class="btn-loader" style="display:none;">Ładowanie...</span>
                   </button>
                 </div>
+                <div class="form-message" aria-live="polite"></div>
               </form>
               <div class="waitlist-proof">
                 <div class="proof-avatars">
-                  <img src="https://ui-avatars.com/api/?name=M&background=0CA8B9&color=fff&size=24" alt="" />
-                  <img src="https://ui-avatars.com/api/?name=A&background=34b88a&color=fff&size=24" alt="" />
-                  <img src="https://ui-avatars.com/api/?name=K&background=1e3a5f&color=fff&size=24" alt="" />
+                  <img src="https://ui-avatars.com/api/?name=M&background=0CA8B9&color=fff&size=24" alt="Awatar testera POCKET" />
+                  <img src="https://ui-avatars.com/api/?name=A&background=34b88a&color=fff&size=24" alt="Zdjęcie profilowe zapisanej osoby" />
+                  <img src="https://ui-avatars.com/api/?name=K&background=1e3a5f&color=fff&size=24" alt="Kolejny użytkownik w wirtualnej kolejce" />
                 </div>
                 <span class="proof-text">Ponad <strong>120 osób</strong> już czeka</span>
               </div>
@@ -987,17 +989,19 @@
       <div class="cta-glow" aria-hidden="true"></div>
       <div class="section-container">
         <div class="cta-content reveal">
-          <h2 id="cta-heading">Dołącz do listy oczekujących POCKET</h2>
-          <p>Otrzymaj powiadomienie, gdy udostępnimy aplikację i zyskaj darmowy wczesny dostęp jako.</p>
+          <h2 id="cta-heading">Dołącz do listy użytkowników POCKET</h2>
+          <p>Otrzymaj powiadomienie, gdy udostępnimy aplikację i zyskaj darmowy dostęp na start.</p>
           
-          <form class="waitlist-form waitlist-form-center" action="#" method="POST" aria-label="Zapisz się do bazy testowej">
+          <form class="waitlist-form waitlist-form-center" id="waitlist-form-cta" aria-label="Zapisz się do nowości">
             <label for="cta-email" class="sr-only">Podaj swój e-mail</label>
             <div class="waitlist-input-group">
               <input type="email" id="cta-email" name="email" placeholder="Twój e-mail" required class="waitlist-input">
               <button type="submit" class="btn-primary btn-glow btn-large waitlist-btn">
-                Wczesny dostęp
+                <span class="btn-text">Zapisz mnie</span>
+                <span class="btn-loader" style="display:none;">Ładowanie...</span>
               </button>
             </div>
+            <div class="form-message" aria-live="polite"></div>
           </form>
 
           <p class="cta-note">Bez spamu · 100% użytecznych nowości · Pamiętaj, darmowy plan na zawsze</p>

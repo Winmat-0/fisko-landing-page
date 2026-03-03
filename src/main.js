@@ -411,6 +411,63 @@ function initPlannerInteraction() {
   });
 }
 
+// --- Waitlist Forms (Resend API) ---
+function initWaitlistForms() {
+  const forms = document.querySelectorAll('.waitlist-form');
+  
+  forms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const emailInput = form.querySelector('.waitlist-input');
+      const submitBtn = form.querySelector('.waitlist-btn');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoader = submitBtn.querySelector('.btn-loader');
+      const messageEl = form.querySelector('.form-message');
+      
+      if (!emailInput.value) return;
+
+      // Stan pobierania / wysyłki
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline-block';
+      messageEl.textContent = '';
+      messageEl.className = 'form-message'; // reset
+
+      try {
+        const res = await fetch('/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emailInput.value })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Wystąpił problem z połączeniem.');
+        }
+
+        // Sukces
+        messageEl.textContent = 'Sukces! Dziękujemy za zapisanie się.';
+        messageEl.style.color = 'var(--teal)';
+        form.reset();
+        
+      } catch (err) {
+        // Obłsuga błędu HTTP
+        messageEl.textContent = err.message || 'Wystąpił niespodziewany błąd.';
+        messageEl.style.color = 'var(--red)';
+      } finally {
+        // Resetowanie kontrolki formularza
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        btnText.style.display = 'inline-block';
+        btnLoader.style.display = 'none';
+      }
+    });
+  });
+}
+
 // --- Init all ---
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
@@ -421,6 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initPlannerAnimation();
   initPlannerInteraction();
+  initWaitlistForms();
 
   // Resize handler for charts
   window.addEventListener('resize', () => {
