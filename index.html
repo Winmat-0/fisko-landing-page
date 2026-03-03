@@ -4,21 +4,119 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POCKET — Twoje paragony pod kontrolą</title>
-    <meta name="description" content="POCKET to inteligentna aplikacja do zarządzania paragonami. Śledź wydatki, porównuj ceny, oszczędzaj mądrze." />
-    <meta name="theme-color" content="#1e3a5f" />
+    <meta name="description" content="POCKET to inteligentna aplikacja do zarządzania paragonami z Asystentem AI. Zobacz jak łatwo śledzić wydatki i dołącz do listy oczekujących na premierę." />
+    <!-- Preconnect i Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="style" href="/src/style.css" />
     <link rel="stylesheet" href="/src/style.css" />
+    <meta name="theme-color" content="#1e3a5f" />
+
+    <!-- Open Graph (Facebook, LinkedIn, AI Bots Preview) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pocket.app/">
+    <meta property="og:title" content="POCKET — Twoje paragony pod kontrolą">
+    <meta property="og:description" content="Inteligentna aplikacja do skanowania paragonów. Śledź wydatki, buduj historię cen i oszczędzaj na zakupach automatycznie.">
+    <meta property="og:image" content="https://pocket.app/og-image.jpg">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pocket.app/">
+    <meta name="twitter:title" content="POCKET — Oszczędzaj mądrze na zakupach">
+    <meta name="twitter:description" content="Skanuj paragony, porównuj ceny i planuj wydatki. Twój osobisty asystent finansowy.">
+    <meta name="twitter:image" content="https://pocket.app/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pocket.app/" />
+
+    <!-- Schema.org JSON-LD for AI Search & Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "POCKET",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "description": "Inteligentna aplikacja do zarządzania paragonami. Śledź swoje wydatki, śledź historię cen produktów z paragonów i planuj zakupy dzięki AI.",
+      "url": "https://pocket.app",
+      "logo": "https://pocket.app/favicon.svg",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "PLN",
+        "availability": "https://schema.org/PreOrder",
+        "category": "Free"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Jak zaplanować budżet domowy, jeśli nigdy wcześniej go nie prowadziłem?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Najlepszym sposobem dla początkujących jest metoda automatyzacji. Zamiast ręcznie spisywać każdy wydatek załóż darmowe konto w POCKET i zrób zdjęcie swojego paragonu zaraz po wyjściu ze sklepu. Wbudowany Asystent POCKET sam sczyta dane, skategoryzuje produkty i złoży je w czytelny budżet bez żadnego wysiłku."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak oszczędzać na codziennych zakupach spożywczych bez rezygnowania z jakości, kiedy wszystko drożeje?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kluczem do oszczędności przy inflacji jest śledzenie cen i mądre planowanie. POCKET analizuje Twoje paragony, zapamiętuje zniżki i uczy się historii cen ulubionych produktów w różnych sklepach. Asystent podpowiada na podstawie historycznych danych lub ofert z e-gazetek przesyłanych od sprzedawców, w którym markecie masz szansę zapłacić najmniej za swój koszyk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy naprawdę muszę wpisywać każdy wydatek, żeby mieć kontrolę nad pieniędzmi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nie, nie musisz. Ręczne wpisywanie jest czasochłonne i usypia dbałość o detale. Dzięki POCKET całą formalną analizę wykonuje za Ciebie nasza inteligentna technologia. Fotografujesz paragon, a ulepszony system natychmiastowo dzieli koszty wpisując je w takie kategorie jak budżet domowy, dom lub artykuły spożywcze."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak wykorzystać paragony do znalezienia największych oszczędności w moim budżecie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paragony to ukryte źródło danych o codziennych nawykach. Aplikacja POCKET przetwarza je w czytelne wykresy i statystyki. Dzięki temu dokładnie widzisz, jaki procent Twojego budżetu pożera chociażby jedzenie na mieście i do których wydatków warto nałożyć w ten miesiąc wyższe limity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "W jaki sposób POCKET przypomina o kończących się zapasach i planuje listę zakupów?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "POCKET uczy się dynamiki Twojego życia układając we wzory wprowadzane daty paragonów. Asystent POCKET w ciągu kilku tygodni poznaje naturalny cykl zakupowy Twoich domowych zapasów (np. pieczywa czy warzyw). W odpowiednim czasie generuje proste monity, mogące natychmiast wrzucić puste składniki na zautomatyzowaną Listę Zakupów."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy aplikacje do budżetu domowego są bezpieczne i jak POCKET chroni moje dane?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak, współczesne aplikacje zarządzania korzystają z szyfrowania danych zgodnego do rygorystycznych wymogów systemów komercyjnych. Zdjęcia Twoich paragonów pozostają w dedykowanej klatce prywatności a dane koszyków nie służą systemom wymiany reklam."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
 
     <!-- ===== NAVBAR ===== -->
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Główna nawigacja">
       <div class="nav-container">
-        <a href="#hero" class="nav-logo">
-          <svg viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-logo-icon">
+        <a href="#hero" class="nav-logo" aria-label="Strona główna">
+          <svg viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-logo-icon" aria-hidden="true">
             <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="rgba(0,0,0,0.15)" transform="translate(2, 2)"/>
             <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="#10b981" stroke="#065f46" stroke-width="2.5"/>
             <text x="45" y="40" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="38" font-weight="900" font-family="Inter">P</text>
@@ -34,284 +132,289 @@
           <a href="#features">Funkcje</a>
           <a href="#assistant-demo">Asystent</a>
           <a href="#planner-demo">Planer</a>
-          <a href="#cta" class="nav-cta">Wypróbuj za darmo</a>
+          <a href="#cta" class="nav-cta">Wczesny dostęp</a>
         </div>
-        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Menu">
-          <span></span><span></span><span></span>
+        <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Otwórz menu nawigacyjne" aria-expanded="false">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
         </button>
       </div>
-      <div class="nav-mobile-menu" id="mobileMenu">
+      <div class="nav-mobile-menu" id="mobileMenu" aria-hidden="true">
         <a href="#features">Funkcje</a>
         <a href="#assistant-demo">Asystent</a>
         <a href="#planner-demo">Planer</a>
-        <a href="#cta" class="nav-cta">Wypróbuj za darmo</a>
+        <a href="#cta" class="nav-cta">Wczesny dostęp</a>
       </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
-    <section id="hero">
-      <div class="hero-bg-grid"></div>
-      <div class="hero-glow hero-glow-1"></div>
-      <div class="hero-glow hero-glow-2"></div>
-      <div class="hero-content">
-        <div class="hero-text">
-          <div class="hero-badge reveal">
-            <span class="badge-dot"></span>
-            Nowa era zarządzania paragonami
-          </div>
-          <h1 class="reveal">
-            Twoje paragony.<br/>
-            <span class="gradient-text">Twoje oszczędności.</span><br/>
-            Twoja kontrola.
-          </h1>
-          <p class="hero-subtitle reveal">
-            Skanuj paragony, śledź wydatki, porównuj ceny i oszczędzaj
-            — wszystko w jednej aplikacji.
-          </p>
-          <div class="hero-buttons reveal">
-            <a href="#cta" class="btn-primary btn-glow">
-              Zacznij oszczędzać
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
-            <a href="#features" class="btn-secondary">
-              Zobacz jak działa
-            </a>
-          </div>
-          <div class="hero-stats reveal">
-            <div class="hero-stat">
-              <span class="hero-stat-number" data-target="15000">0</span>
-              <span class="hero-stat-label">Zeskanowanych paragonów</span>
+    <main id="main-content">
+      <!-- ===== HERO ===== -->
+      <section id="hero" aria-labelledby="hero-heading">
+        <div class="hero-bg-grid" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-badge reveal" aria-hidden="true">
+              <span class="badge-dot"></span>
+              Nowa era zarządzania paragonami
             </div>
-            <div class="hero-stat-divider"></div>
-            <div class="hero-stat">
-              <span class="hero-stat-number" data-target="2500">0</span>
-              <span class="hero-stat-label">Aktywnych użytkowników</span>
+            <h1 id="hero-heading" class="reveal">
+              Twoje paragony.<br/>
+              <span class="gradient-text">Twoje oszczędności.</span><br/>
+              Twoja kontrola.
+            </h1>
+            <p class="hero-subtitle reveal">
+              Aplikacja, która automatycznie ogarnia Twój budżet domowy dzięki wbudowanemu Asystentowi AI. Aktualnie w zamkniętych testach na iOS i Android.
+            </p>
+            <div class="hero-waitlist reveal">
+              <form class="waitlist-form" action="#" method="POST" aria-label="Zapisz się na wczesny dostęp">
+                <label for="hero-email" class="sr-only">Adres e-mail</label>
+                <div class="waitlist-input-group">
+                  <input type="email" id="hero-email" name="email" placeholder="Twój adres e-mail" required class="waitlist-input">
+                  <button type="submit" class="btn-primary btn-glow waitlist-btn">
+                    Dołącz do kolejki
+                  </button>
+                </div>
+              </form>
+              <div class="waitlist-proof">
+                <div class="proof-avatars">
+                  <img src="https://ui-avatars.com/api/?name=M&background=0CA8B9&color=fff&size=24" alt="" />
+                  <img src="https://ui-avatars.com/api/?name=A&background=34b88a&color=fff&size=24" alt="" />
+                  <img src="https://ui-avatars.com/api/?name=K&background=1e3a5f&color=fff&size=24" alt="" />
+                </div>
+                <span class="proof-text">Ponad <strong>120 osób</strong> już czeka</span>
+              </div>
             </div>
-            <div class="hero-stat-divider"></div>
-            <div class="hero-stat">
-              <span class="hero-stat-number" data-target="340000" data-prefix="" data-suffix=" zł">0</span>
-              <span class="hero-stat-label">Zaoszczędzono łącznie</span>
+            <div class="hero-stats reveal">
+              <div class="hero-stat">
+                <span class="hero-stat-number" data-target="15000">0</span>
+                <span class="hero-stat-label">Zeskanowanych paragonów</span>
+              </div>
+              <div class="hero-stat-divider" aria-hidden="true"></div>
+              <div class="hero-stat">
+                <span class="hero-stat-number" data-target="340000" data-prefix="" data-suffix=" zł">0</span>
+                <span class="hero-stat-label">Zaoszczędzono łącznie</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="hero-visual reveal">
-          <div class="device">
-            <div class="device-frame">
-              <div class="device-notch"></div>
-              <div class="device-screen">
-                <!-- Status bar -->
-                <div class="screen-statusbar">
-                  <span>9:41</span>
-                  <div class="statusbar-icons">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="20" y="10" width="3" height="4" rx="1" fill="currentColor"/><rect x="4" y="8" width="10" height="8" rx="1" fill="currentColor"/></svg>
-                  </div>
-                </div>
-                <!-- App header -->
-                <div class="screen-app-header">
-                  <svg viewBox="0 0 90 110" fill="none" class="screen-app-logo">
-                    <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="rgba(0,0,0,0.15)" transform="translate(2, 2)"/>
-                    <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="#10b981" stroke="#065f46" stroke-width="2.5"/>
-                    <text x="45" y="40" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="38" font-weight="900" font-family="Inter">P</text>
-                    <g transform="translate(25, 58)">
-                      <rect width="40" height="3.5" rx="1.75" fill="white" fill-opacity="1"/>
-                      <rect y="9" width="28" height="3.5" rx="1.75" fill="white" fill-opacity="0.6"/>
-                      <rect y="18" width="35" height="3.5" rx="1.75" fill="white" fill-opacity="0.3"/>
-                    </g>
-                  </svg>
-                  <div>
-                    <div class="screen-app-name">POCKET</div>
-                    <div class="screen-app-sub">Twoje oszczędności pod kontrolą</div>
-                  </div>
-                </div>
-                <!-- Stats -->
-                <div class="screen-stats-row">
-                  <div class="screen-stat screen-stat-blue">
-                    <div class="screen-stat-label">Wydane</div>
-                    <div class="screen-stat-val">1 245 zł</div>
-                  </div>
-                  <div class="screen-stat screen-stat-green">
-                    <div class="screen-stat-label">Zaoszczędzone</div>
-                    <div class="screen-stat-val">187 zł</div>
-                  </div>
-                </div>
-                <!-- Paragony count -->
-                <div class="screen-section screen-paragony-row">
-                  <div class="screen-paragony-left">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8899aa" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-                    <div>
-                      <span class="screen-paragony-label">Paragony</span>
-                      <span class="screen-paragony-val">84</span>
+          <div class="hero-visual reveal" aria-hidden="true">
+            <div class="device">
+              <div class="device-frame">
+                <div class="device-notch"></div>
+                <div class="device-screen">
+                  <!-- Status bar -->
+                  <div class="screen-statusbar">
+                    <span>9:41</span>
+                    <div class="statusbar-icons">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="6" width="18" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="20" y="10" width="3" height="4" rx="1" fill="currentColor"/><rect x="4" y="8" width="10" height="8" rx="1" fill="currentColor"/></svg>
                     </div>
                   </div>
-                  <div class="screen-paragony-right">
-                    <span class="screen-paragony-label">Średnio na paragon</span>
-                    <span class="screen-paragony-val">107,04 zł</span>
-                  </div>
-                </div>
-                <!-- Donut chart — like real app's "Wydatki wg kategorii" -->
-                <div class="screen-section">
-                  <div class="screen-section-title">Wydatki wg kategorii</div>
-                  <div class="screen-donut-row">
-                    <svg viewBox="0 0 100 100" class="screen-donut">
-                      <!-- Background -->
-                      <circle cx="50" cy="50" r="38" fill="none" stroke="hsl(215 20% 18%)" stroke-width="12"/>
-                      <!-- Odzież/obuwie 28% -->
-                      <circle cx="50" cy="50" r="38" fill="none" stroke="#0CA8B9" stroke-width="12" stroke-dasharray="66.8 172" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
-                      <!-- Napoje 18% -->
-                      <circle cx="50" cy="50" r="38" fill="none" stroke="#34b88a" stroke-width="12" stroke-dasharray="43 195.8" stroke-dashoffset="-66.8" transform="rotate(-90 50 50)"/>
-                      <!-- Warzywa 17% -->
-                      <circle cx="50" cy="50" r="38" fill="none" stroke="#e0a030" stroke-width="12" stroke-dasharray="40.6 198.2" stroke-dashoffset="-109.8" transform="rotate(-90 50 50)"/>
-                      <!-- Restauracje 16% -->
-                      <circle cx="50" cy="50" r="38" fill="none" stroke="#1e3a5f" stroke-width="12" stroke-dasharray="38.2 200.6" stroke-dashoffset="-150.4" transform="rotate(-90 50 50)"/>
-                      <!-- Pozostałe 21% -->
-                      <circle cx="50" cy="50" r="38" fill="none" stroke="#8b5cf6" stroke-width="12" stroke-dasharray="50.2 188.6" stroke-dashoffset="-188.6" transform="rotate(-90 50 50)"/>
+                  <!-- App header -->
+                  <div class="screen-app-header">
+                    <svg viewBox="0 0 90 110" fill="none" class="screen-app-logo">
+                      <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="rgba(0,0,0,0.15)" transform="translate(2, 2)"/>
+                      <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="#10b981" stroke="#065f46" stroke-width="2.5"/>
+                      <text x="45" y="40" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="38" font-weight="900" font-family="Inter">P</text>
+                      <g transform="translate(25, 58)">
+                        <rect width="40" height="3.5" rx="1.75" fill="white" fill-opacity="1"/>
+                        <rect y="9" width="28" height="3.5" rx="1.75" fill="white" fill-opacity="0.6"/>
+                        <rect y="18" width="35" height="3.5" rx="1.75" fill="white" fill-opacity="0.3"/>
+                      </g>
                     </svg>
-                    <div class="screen-donut-legend">
-                      <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#0CA8B9"></span>Odzież 645 zł</div>
-                      <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#34b88a"></span>Napoje 416 zł</div>
-                      <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#e0a030"></span>Warzywa 390 zł</div>
-                      <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#1e3a5f"></span>Restauracje 375 zł</div>
-                      <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#8b5cf6"></span>Pozostałe 300 zł</div>
+                    <div>
+                      <div class="screen-app-name">POCKET</div>
+                      <div class="screen-app-sub">Twoje oszczędności pod kontrolą</div>
                     </div>
                   </div>
-                </div>
-                <!-- Wydatki i oszczędności — grouped bar chart like real app -->
-                <div class="screen-section">
-                  <div class="screen-section-title" style="display:flex; justify-content:space-between; align-items:center;">
-                    Wydatki i oszczędności
-                    <span style="font-size:0.45rem; color:var(--text-dim); text-transform:none; letter-spacing:0;">Tydzień ▾</span>
-                  </div>
-                  <svg viewBox="0 0 220 80" class="screen-bar-chart-svg">
-                    <!-- Y axis labels -->
-                    <text x="2" y="12" fill="#556677" font-size="5" font-family="Inter">2400zł</text>
-                    <text x="2" y="32" fill="#556677" font-size="5" font-family="Inter">1200zł</text>
-                    <text x="2" y="52" fill="#556677" font-size="5" font-family="Inter">600zł</text>
-                    <!-- Grid lines -->
-                    <line x1="30" y1="10" x2="215" y2="10" stroke="hsl(215 20% 16%)" stroke-width="0.3"/>
-                    <line x1="30" y1="30" x2="215" y2="30" stroke="hsl(215 20% 16%)" stroke-width="0.3"/>
-                    <line x1="30" y1="50" x2="215" y2="50" stroke="hsl(215 20% 16%)" stroke-width="0.3"/>
-                    <!-- Week 1: 01.02-08.02 -->
-                    <rect x="38" y="38" width="14" height="22" rx="2" fill="hsl(215 70% 35%)"/>
-                    <rect x="54" y="48" width="14" height="12" rx="2" fill="#34b88a"/>
-                    <!-- Week 2: 09.02-15.02 (highest) -->
-                    <rect x="82" y="14" width="14" height="46" rx="2" fill="hsl(215 70% 35%)"/>
-                    <rect x="98" y="42" width="14" height="18" rx="2" fill="#34b88a"/>
-                    <!-- Week 3: 16.02-22.02 -->
-                    <rect x="126" y="24" width="14" height="36" rx="2" fill="hsl(215 70% 35%)"/>
-                    <rect x="142" y="44" width="14" height="16" rx="2" fill="#34b88a"/>
-                    <!-- Week 4: 23.02-28.02 (current, smaller) -->
-                    <rect x="170" y="42" width="14" height="18" rx="2" fill="hsl(215 70% 35%)"/>
-                    <rect x="186" y="50" width="14" height="10" rx="2" fill="#34b88a"/>
-                    <!-- X labels -->
-                    <text x="53" y="68" fill="#556677" font-size="4.5" font-family="Inter" text-anchor="middle">01.02-08.02</text>
-                    <text x="97" y="68" fill="#556677" font-size="4.5" font-family="Inter" text-anchor="middle">09.02-15.02</text>
-                    <text x="141" y="68" fill="#556677" font-size="4.5" font-family="Inter" text-anchor="middle">16.02-22.02</text>
-                    <text x="185" y="68" fill="#556677" font-size="4.5" font-family="Inter" text-anchor="middle">23.02-28.02</text>
-                  </svg>
-                  <div class="screen-chart-legend" style="margin-top:2px;">
-                    <span class="screen-chart-legend-item"><span class="screen-legend-dot" style="background:hsl(215 70% 35%)"></span>Wydane</span>
-                    <span class="screen-chart-legend-item"><span class="screen-legend-dot" style="background:#34b88a"></span>Oszczędzone</span>
-                  </div>
-                </div>
-                <!-- Receipts -->
-                <div class="screen-section">
-                  <div class="screen-section-title">Ostatnie paragony</div>
-                  <div class="screen-receipt-list">
-                    <div class="screen-receipt">
-                      <div class="screen-receipt-dot" style="background:#34b88a;"></div>
-                      <div class="screen-receipt-info">
-                        <span class="screen-receipt-store">Biedronka</span>
-                        <span class="screen-receipt-date">Dziś, 14:30</span>
-                      </div>
-                      <span class="screen-receipt-amount">87,42 zł</span>
+                  <!-- Stats -->
+                  <div class="screen-stats-row">
+                    <div class="screen-stat screen-stat-blue">
+                      <div class="screen-stat-label">Wydane</div>
+                      <div class="screen-stat-val">1 245 zł</div>
                     </div>
-                    <div class="screen-receipt">
-                      <div class="screen-receipt-dot" style="background:#2BBBC9;"></div>
-                      <div class="screen-receipt-info">
-                        <span class="screen-receipt-store">Lidl</span>
-                        <span class="screen-receipt-date">Wczoraj</span>
-                      </div>
-                      <span class="screen-receipt-amount">134,80 zł</span>
+                    <div class="screen-stat screen-stat-green">
+                      <div class="screen-stat-label">Zaoszczędzone</div>
+                      <div class="screen-stat-val">187 zł</div>
                     </div>
-                    <div class="screen-receipt">
-                      <div class="screen-receipt-dot" style="background:#e0a030;"></div>
-                      <div class="screen-receipt-info">
-                        <span class="screen-receipt-store">Rossmann</span>
-                        <span class="screen-receipt-date">2 dni temu</span>
+                  </div>
+                  <!-- Paragony count -->
+                  <div class="screen-section screen-paragony-row">
+                    <div class="screen-paragony-left">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8899aa" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                      <div>
+                        <span class="screen-paragony-label">Paragony</span>
+                        <span class="screen-paragony-val">84</span>
                       </div>
-                      <span class="screen-receipt-amount">56,90 zł</span>
+                    </div>
+                    <div class="screen-paragony-right">
+                      <span class="screen-paragony-label">Średnio na paragon</span>
+                      <span class="screen-paragony-val">107,04 zł</span>
+                    </div>
+                  </div>
+                  <!-- Donut chart — like real app's "Wydatki wg kategorii" -->
+                  <div class="screen-section">
+                    <div class="screen-section-title">Wydatki wg kategorii</div>
+                    <div class="screen-donut-row">
+                      <svg viewBox="0 0 100 100" class="screen-donut">
+                        <!-- Background -->
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="hsl(215 20% 18%)" stroke-width="12"/>
+                        <!-- Odzież/obuwie 28% -->
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#0CA8B9" stroke-width="12" stroke-dasharray="66.8 172" stroke-dashoffset="0" transform="rotate(-90 50 50)"/>
+                        <!-- Napoje 18% -->
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#34b88a" stroke-width="12" stroke-dasharray="43 195.8" stroke-dashoffset="-66.8" transform="rotate(-90 50 50)"/>
+                        <!-- Warzywa 17% -->
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#e0a030" stroke-width="12" stroke-dasharray="40.6 198.2" stroke-dashoffset="-109.8" transform="rotate(-90 50 50)"/>
+                        <!-- Restauracje 16% -->
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#1e3a5f" stroke-width="12" stroke-dasharray="38.2 200.6" stroke-dashoffset="-150.4" transform="rotate(-90 50 50)"/>
+                        <!-- Pozostałe 21% -->
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="#8b5cf6" stroke-width="12" stroke-dasharray="50.2 188.6" stroke-dashoffset="-188.6" transform="rotate(-90 50 50)"/>
+                      </svg>
+                      <div class="screen-donut-legend">
+                        <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#0CA8B9"></span>Odzież 645 zł</div>
+                        <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#34b88a"></span>Napoje 416 zł</div>
+                        <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#e0a030"></span>Warzywa 390 zł</div>
+                        <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#1e3a5f"></span>Restauracje 375 zł</div>
+                        <div class="screen-legend-item"><span class="screen-legend-dot" style="background:#8b5cf6"></span>Pozostałe 300 zł</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Wydatki i oszczędności — grouped bar chart like real app -->
+                  <div class="screen-section">
+                    <div class="screen-section-title" style="display:flex; justify-content:space-between; align-items:center;">
+                      Wydatki i oszczędności
+                      <span style="font-size:0.45rem; color:var(--text-dim); text-transform:none; letter-spacing:0;">Tydzień ▾</span>
+                    </div>
+                    <svg viewBox="0 0 220 80" class="screen-bar-chart-svg">
+                      <!-- Y axis labels -->
+                      <text x="2" y="12" fill="#556677" font-size="5" font-family="Inter">2400zł</text>
+                      <text x="2" y="32" fill="#556677" font-size="5" font-family="Inter">1200zł</text>
+                      <text x="2" y="52" fill="#556677" font-size="5" font-family="Inter">600zł</text>
+                      <!-- Grid lines -->
+                      <line x1="30" y1="10" x2="215" y2="10" stroke="hsl(215 20% 16%)" stroke-width="0.3"/>
+                      <line x1="30" y1="30" x2="215" y2="30" stroke="hsl(215 20% 16%)" stroke-width="0.3"/>
+                      <line x1="30" y1="50" x2="215" y2="50" stroke="hsl(215 20% 16%)" stroke-width="0.3"/>
+                      <!-- Week 1: 01.02-08.02 -->
+                      <rect x="38" y="38" width="14" height="22" rx="2" fill="hsl(215 70% 35%)"/>
+                      <rect x="54" y="48" width="14" height="12" rx="2" fill="#34b88a"/>
+                      <!-- Week 2: 09.02-15.02 (highest) -->
+                      <rect x="82" y="14" width="14" height="46" rx="2" fill="hsl(215 70% 35%)"/>
+                      <rect x="98" y="42" width="14" height="18" rx="2" fill="#34b88a"/>
+                      <!-- Week 3: 16.02-22.02 -->
+                      <rect x="126" y="24" width="14" height="36" rx="2" fill="hsl(215 70% 35%)"/>
+                      <rect x="142" y="44" width="14" height="16" rx="2" fill="#34b88a"/>
+                      <!-- Week 4: 23.02-28.02 (current, smaller) -->
+                      <rect x="170" y="42" width="14" height="18" rx="2" fill="hsl(215 70% 35%)"/>
+                      <rect x="186" y="50" width="14" height="10" rx="2" fill="#34b88a"/>
+                      <!-- X labels -->
+                      <text x="53" y="68" fill="#556677" font-size="4.5" font-family="Inter" text-anchor="middle">01.02-08.02</text>
+                      <text x="97" y="68" fill="#556677" font-size="4.5" font-family="Inter" text-anchor="middle">09.02-15.02</text>
+                      <text x="141" y="68" fill="#556677" font-size="4.5" font-family="Inter" text-anchor="middle">16.02-22.02</text>
+                      <text x="185" y="68" fill="#556677" font-size="4.5" font-family="Inter" text-anchor="middle">23.02-28.02</text>
+                    </svg>
+                    <div class="screen-chart-legend" style="margin-top:2px;">
+                      <span class="screen-chart-legend-item"><span class="screen-legend-dot" style="background:hsl(215 70% 35%)"></span>Wydane</span>
+                      <span class="screen-chart-legend-item"><span class="screen-legend-dot" style="background:#34b88a"></span>Oszczędzone</span>
+                    </div>
+                  </div>
+                  <!-- Receipts -->
+                  <div class="screen-section">
+                    <div class="screen-section-title">Ostatnie paragony</div>
+                    <div class="screen-receipt-list">
+                      <div class="screen-receipt">
+                        <div class="screen-receipt-dot" style="background:#34b88a;"></div>
+                        <div class="screen-receipt-info">
+                          <span class="screen-receipt-store">Biedronka</span>
+                          <span class="screen-receipt-date">Dziś, 14:30</span>
+                        </div>
+                        <span class="screen-receipt-amount">87,42 zł</span>
+                      </div>
+                      <div class="screen-receipt">
+                        <div class="screen-receipt-dot" style="background:#2BBBC9;"></div>
+                        <div class="screen-receipt-info">
+                          <span class="screen-receipt-store">Lidl</span>
+                          <span class="screen-receipt-date">Wczoraj</span>
+                        </div>
+                        <span class="screen-receipt-amount">134,80 zł</span>
+                      </div>
+                      <div class="screen-receipt">
+                        <div class="screen-receipt-dot" style="background:#e0a030;"></div>
+                        <div class="screen-receipt-info">
+                          <span class="screen-receipt-store">Rossmann</span>
+                          <span class="screen-receipt-date">2 dni temu</span>
+                        </div>
+                        <span class="screen-receipt-amount">56,90 zł</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Floating cards — repositioned -->
-          <div class="floating-card floating-card-1">
-            <span class="floating-card-icon">📸</span>
-            <div>
-              <span class="floating-card-title">Skanuj paragon</span>
-              <span class="floating-card-sub">Automatyczne rozpoznanie</span>
+            <!-- Floating cards — repositioned -->
+            <div class="floating-card floating-card-1">
+              <span class="floating-card-icon">📸</span>
+              <div>
+                <span class="floating-card-title">Skanuj paragon</span>
+                <span class="floating-card-sub">Automatyczne rozpoznanie</span>
+              </div>
             </div>
-          </div>
-          <div class="floating-card floating-card-2">
-            <span class="floating-card-icon">✅</span>
-            <div>
-              <span class="floating-card-title">Oszczędzono dzisiaj</span>
-              <span class="floating-card-amount">+12,50 zł</span>
+            <div class="floating-card floating-card-2">
+              <span class="floating-card-icon">✅</span>
+              <div>
+                <span class="floating-card-title">Oszczędzono dzisiaj</span>
+                <span class="floating-card-amount">+12,50 zł</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ===== PROBLEMS ===== -->
-    <section id="problems">
-      <div class="section-container">
-        <div class="section-header reveal">
-          <span class="section-tag">Problemy</span>
-          <h2>Znasz to uczucie?</h2>
-          <p class="section-subtitle">Każdego dnia zmagasz się z problemami, które POCKET rozwiązuje w kilka sekund.</p>
+      <!-- ===== PROBLEMS ===== -->
+      <section id="problems" aria-labelledby="problems-heading">
+        <div class="section-container">
+          <div class="section-header reveal">
+            <span class="section-tag">Problemy</span>
+            <h2 id="problems-heading">Znasz to uczucie?</h2>
+            <p class="section-subtitle">Każdego dnia zmagasz się z problemami, które POCKET rozwiązuje w kilka sekund.</p>
+          </div>
+          <div class="problems-grid">
+            <div class="problem-card reveal" style="--delay: 0s;">
+              <div class="problem-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+              </div>
+              <h3>Zagubione paragony</h3>
+              <p>Paragony giną w kieszeniach, blakną w portfelu. Kiedy ich potrzebujesz — nie ma ich nigdzie.</p>
+            </div>
+            <div class="problem-card reveal" style="--delay: 0.15s;">
+              <div class="problem-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+              </div>
+              <h3>Brak wglądu w wydatki</h3>
+              <p>Nie wiesz ile co miesiąc wydajesz na jedzenie, chemię czy ubrania. Wydatki wymykają się spod kontroli.</p>
+            </div>
+            <div class="problem-card reveal" style="--delay: 0.3s;">
+              <div class="problem-icon" aria-hidden="true">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
+              </div>
+              <h3>Przepłacanie za produkty</h3>
+              <p>Kupujesz w ciemno, nie znając historii cen. Ten sam produkt w innym sklepie może kosztować znacznie mniej.</p>
+            </div>
+          </div>
         </div>
-        <div class="problems-grid">
-          <div class="problem-card reveal" style="--delay: 0s;">
-            <div class="problem-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
-            </div>
-            <h3>Zagubione paragony</h3>
-            <p>Paragony giną w kieszeniach, blakną w portfelu. Kiedy ich potrzebujesz — nie ma ich nigdzie.</p>
-          </div>
-          <div class="problem-card reveal" style="--delay: 0.15s;">
-            <div class="problem-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-            </div>
-            <h3>Brak wglądu w wydatki</h3>
-            <p>Nie wiesz ile co miesiąc wydajesz na jedzenie, chemię czy ubrania. Wydatki wymykają się spod kontroli.</p>
-          </div>
-          <div class="problem-card reveal" style="--delay: 0.3s;">
-            <div class="problem-icon">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></svg>
-            </div>
-            <h3>Przepłacanie za produkty</h3>
-            <p>Kupujesz w ciemno, nie znając historii cen. Ten sam produkt w innym sklepie może kosztować znacznie mniej.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
 
     <!-- ===== FEATURES ===== -->
-    <section id="features">
+    <section id="features" aria-labelledby="features-heading">
       <div class="section-container">
         <div class="section-header reveal">
-          <span class="section-tag">Funkcje</span>
-          <h2>Wszystko w jednym miejscu</h2>
+          <span class="section-tag" aria-hidden="true">Funkcje</span>
+          <h2 id="features-heading">Wszystko w jednym miejscu</h2>
           <p class="section-subtitle">POCKET to więcej niż skanowanie paragonów. To Twoje centrum kontroli finansów.</p>
         </div>
 
         <!-- Feature 1: Receipt Analyzer -->
         <div class="feature-row reveal">
-          <div class="feature-visual">
+          <div class="feature-visual" aria-hidden="true">
             <div class="device">
               <div class="device-frame">
                 <div class="device-notch"></div>
@@ -407,20 +510,20 @@
             </div>
           </div>
           <div class="feature-text">
-            <div class="feature-badge">Analizator</div>
+            <div class="feature-badge" aria-hidden="true">Analizator</div>
             <h3>Zeskanuj paragon — reszta dzieje się sama</h3>
             <p>Zrób zdjęcie paragonu, a POCKET automatycznie rozpozna produkty, sklep, datę i kwoty. Oszczędności wyliczane są na bieżąco.</p>
             <ul class="feature-list">
               <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                 Automatyczne rozpoznanie produktów
               </li>
               <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                 Wykrywanie promocji i oszczędności
               </li>
               <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                 Historia paragonów zawsze pod ręką
               </li>
             </ul>
@@ -429,7 +532,7 @@
 
         <!-- Feature 2: Price History -->
         <div class="feature-row feature-row-reverse reveal">
-          <div class="feature-visual">
+          <div class="feature-visual" aria-hidden="true">
             <div class="device">
               <div class="device-frame">
                 <div class="device-notch"></div>
@@ -566,20 +669,20 @@
             </div>
           </div>
           <div class="feature-text">
-            <div class="feature-badge">Historia Cen</div>
+            <div class="feature-badge" aria-hidden="true">Historia Cen</div>
             <h3>Twoje zakupy budują historię cen</h3>
             <p>Każdy zeskanowany paragon to nowy punkt danych. POCKET rozpoznaje produkty, zapisuje ceny i buduje historię — widzisz jak zmieniały się ceny w czasie oraz ile płaciłeś w różnych sklepach.</p>
             <ul class="feature-list">
               <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                 Wykres cen z Twoich paragonów
               </li>
               <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                 Śr. cena regularna vs promo
               </li>
               <li>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34b88a" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                 Lista paragonów z danym produktem
               </li>
             </ul>
@@ -589,17 +692,17 @@
     </section>
 
     <!-- ===== ASSISTANT CHAT DEMO ===== -->
-    <section id="assistant-demo">
+    <section id="assistant-demo" aria-labelledby="assistant-heading">
       <div class="section-container">
         <div class="section-header reveal">
-          <span class="section-tag">Nowość</span>
-          <h2>Asystent POCKET</h2>
+          <span class="section-tag" aria-hidden="true">Nowość</span>
+          <h2 id="assistant-heading">Asystent POCKET</h2>
           <p class="section-subtitle">Zapytaj o swoje wydatki i otrzymaj natychmiastową odpowiedź z wykresem. Asystent zna Twoją historię zakupów.</p>
         </div>
         <div class="chat-demo-container reveal">
           <div class="chat-window">
             <div class="chat-header">
-              <div class="chat-header-avatar">
+              <div class="chat-header-avatar" aria-hidden="true">
                 <svg viewBox="0 0 90 110" fill="none" class="chat-logo">
                   <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="rgba(0,0,0,0.15)" transform="translate(2, 2)"/>
                   <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="#10b981" stroke="#065f46" stroke-width="2.5"/>
@@ -618,14 +721,14 @@
                 </div>
               </div>
             </div>
-            <div class="chat-messages" id="chatMessages">
+            <div class="chat-messages" id="chatMessages" aria-live="polite">
               <div class="chat-message assistant">
                 <div class="chat-bubble">
                   Cześć! 👋 Jestem Twoim asystentem. Zapytaj mnie o wydatki, a przeanalizuję Twoje paragony.
                 </div>
               </div>
             </div>
-            <div class="chat-prompts" id="chatPrompts">
+            <div class="chat-prompts" id="chatPrompts" aria-label="Sugestie zapytań">
               <button class="chat-prompt-btn" data-prompt="yearly">
                 📊 Zestawienie opłat za zeszły rok
               </button>
@@ -639,11 +742,11 @@
     </section>
 
     <!-- ===== SHOPPING PLANNER DEMO ===== -->
-    <section id="planner-demo">
+    <section id="planner-demo" aria-labelledby="planner-heading">
       <div class="section-container">
         <div class="section-header reveal">
-          <span class="section-tag">Wkrótce</span>
-          <h2>Planer Zakupów</h2>
+          <span class="section-tag" aria-hidden="true">Wkrótce</span>
+          <h2 id="planner-heading">Planer Zakupów</h2>
           <p class="section-subtitle">Asystent analizuje Twoje nawyki zakupowe i podpowiada, czego możesz potrzebować — zanim sam o tym pomyślisz.</p>
         </div>
         <div class="planner-demo reveal">
@@ -653,7 +756,7 @@
               <div class="device-screen">
                 <div class="screen-statusbar"><span>9:41</span><div class="statusbar-icons"><span class="sb-pill"></span></div></div>
                 <div class="screen-app-header">
-                  <span class="screen-app-logo" style="font-size:16px;">🛒</span>
+                  <span class="screen-app-logo" style="font-size:16px;" aria-hidden="true">🛒</span>
                   <div>
                     <div class="screen-app-name">Planer zakupów</div>
                     <div class="screen-app-sub">Na podstawie Twoich nawyków</div>
@@ -662,161 +765,161 @@
                 <div class="screen-planner-hint">Kliknij produkt aby oznaczyć ✓</div>
                 <div class="screen-planner-list" id="plannerItems">
                   <!-- Item 1 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🥛</span>
+                      <span class="spi-emoji" aria-hidden="true">🥛</span>
                       <div>
                         <div class="spi-name">Nabiał</div>
                         <div class="spi-meta">co ~7 dni · 6 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill urgent" style="--pw:86%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill urgent" style="--pw:86%;"></div></div>
                       <span class="spi-badge urgent">Kup dziś</span>
                     </div>
-                  </div>
+                  </button>
                   <!-- Item 2 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0.12s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0.12s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🍞</span>
+                      <span class="spi-emoji" aria-hidden="true">🍞</span>
                       <div>
                         <div class="spi-name">Pieczywo</div>
                         <div class="spi-meta">co ~4 dni · 3 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill warn" style="--pw:75%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill warn" style="--pw:75%;"></div></div>
                       <span class="spi-badge warn">Wkrótce</span>
                     </div>
-                  </div>
+                  </button>
                   <!-- Item 3 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0.24s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0.24s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🧴</span>
+                      <span class="spi-emoji" aria-hidden="true">🧴</span>
                       <div>
                         <div class="spi-name">Środek czystości</div>
                         <div class="spi-meta">co ~30 dni · 28 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill urgent" style="--pw:93%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill urgent" style="--pw:93%;"></div></div>
                       <span class="spi-badge urgent">Kup dziś</span>
                     </div>
-                  </div>
+                  </button>
                   <!-- Item 4 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0.36s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0.36s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🥚</span>
+                      <span class="spi-emoji" aria-hidden="true">🥚</span>
                       <div>
                         <div class="spi-name">Jajka</div>
                         <div class="spi-meta">co ~14 dni · 10 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill warn" style="--pw:71%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill warn" style="--pw:71%;"></div></div>
                       <span class="spi-badge warn">Wkrótce</span>
                     </div>
-                  </div>
+                  </button>
                   <!-- Item 5 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0.48s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0.48s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🧻</span>
+                      <span class="spi-emoji" aria-hidden="true">🧻</span>
                       <div>
                         <div class="spi-name">Art. higieniczne</div>
                         <div class="spi-meta">co ~21 dni · 20 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill urgent" style="--pw:95%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill urgent" style="--pw:95%;"></div></div>
                       <span class="spi-badge urgent">Kup dziś</span>
                     </div>
-                  </div>
+                  </button>
                   <!-- Item 6 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0.6s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0.6s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🧈</span>
+                      <span class="spi-emoji" aria-hidden="true">🧈</span>
                       <div>
                         <div class="spi-name">Masło</div>
                         <div class="spi-meta">co ~10 dni · 8 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill warn" style="--pw:80%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill warn" style="--pw:80%;"></div></div>
                       <span class="spi-badge warn">Wkrótce</span>
                     </div>
-                  </div>
+                  </button>
                   <!-- Item 7 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0.72s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0.72s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🍎</span>
+                      <span class="spi-emoji" aria-hidden="true">🍎</span>
                       <div>
                         <div class="spi-name">Owoce</div>
                         <div class="spi-meta">co ~5 dni · 4 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill urgent" style="--pw:80%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill urgent" style="--pw:80%;"></div></div>
                       <span class="spi-badge urgent">Kup dziś</span>
                     </div>
-                  </div>
+                  </button>
                   <!-- Item 8 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0.84s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0.84s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🧽</span>
+                      <span class="spi-emoji" aria-hidden="true">🧽</span>
                       <div>
                         <div class="spi-name">Płyn do naczyń</div>
                         <div class="spi-meta">co ~45 dni · 40 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill warn" style="--pw:89%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill warn" style="--pw:89%;"></div></div>
                       <span class="spi-badge warn">Wkrótce</span>
                     </div>
-                  </div>
+                  </button>
                   <!-- Item 9 -->
-                  <div class="screen-planner-item" data-planner-interactive style="--delay: 0.96s;">
-                    <div class="spi-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+                  <button class="screen-planner-item" type="button" aria-pressed="false" data-planner-interactive style="--delay: 0.96s;">
+                    <div class="spi-check" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
                     <div class="spi-left">
-                      <span class="spi-emoji">🍝</span>
+                      <span class="spi-emoji" aria-hidden="true">🍝</span>
                       <div>
                         <div class="spi-name">Makaron</div>
                         <div class="spi-meta">co ~20 dni · 18 dni temu</div>
                       </div>
                     </div>
                     <div class="spi-right">
-                      <div class="spi-progress"><div class="spi-progress-fill warn" style="--pw:90%;"></div></div>
+                      <div class="spi-progress" aria-hidden="true"><div class="spi-progress-fill warn" style="--pw:90%;"></div></div>
                       <span class="spi-badge warn">Wkrótce</span>
                     </div>
-                  </div>
+                  </button>
                 </div>
                 <div class="screen-planner-footer">
-                  <span id="plannerCount">9 produktów do kupienia</span>
-                  <span class="screen-planner-cta">Zobacz listę →</span>
+                  <span id="plannerCount" aria-live="polite">9 produktów do kupienia</span>
+                  <span class="screen-planner-cta" aria-hidden="true">Zobacz listę →</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="planner-features">
             <div class="planner-feature-card" style="--delay: 0s;">
-              <div class="pf-icon">🧠</div>
+              <div class="pf-icon" aria-hidden="true">🧠</div>
               <h4>Zna Twoje nawyki</h4>
               <p>Analizuje paragony i buduje profil zakupowy — wie co kupujesz i jak często.</p>
             </div>
             <div class="planner-feature-card" style="--delay: 0.15s;">
-              <div class="pf-icon">⏰</div>
+              <div class="pf-icon" aria-hidden="true">⏰</div>
               <h4>Przypomina w porę</h4>
               <p>Podpowiada produkty, które mogą się kończyć — zanim otworzysz pustą lodówkę.</p>
             </div>
             <div class="planner-feature-card" style="--delay: 0.3s;">
-              <div class="pf-icon">💡</div>
+              <div class="pf-icon" aria-hidden="true">💡</div>
               <h4>Najlepsze ceny</h4>
               <p>Pokazuje gdzie kupisz taniej na podstawie historii cen z Twoich paragonów.</p>
             </div>
@@ -825,28 +928,84 @@
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
-    <section id="cta">
-      <div class="cta-glow"></div>
+    <section id="faq" aria-labelledby="faq-heading">
       <div class="section-container">
-        <div class="cta-content reveal">
-          <h2>Zacznij oszczędzać z&nbsp;POCKET</h2>
-          <p>Dołącz do tysięcy użytkowników, którzy odzyskali kontrolę nad swoimi wydatkami.</p>
-          <a href="#" class="btn-primary btn-glow btn-large">
-            Wypróbuj za darmo
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </a>
-          <p class="cta-note">Bez karty kredytowej · Bez zobowiązań · Zawsze darmowy plan</p>
+        <div class="section-header reveal">
+          <span class="section-tag" aria-hidden="true">Często zadawane pytania</span>
+          <h2 id="faq-heading">Poznaj nowy wymiar oszczędności</h2>
+          <p class="section-subtitle">Aplikacja POCKET uczy się Ciebie, pozwalając zaoszczędzić na codziennych nawykach.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary class="faq-question">Jak zaplanować budżet domowy, jeśli nigdy wcześniej go nie prowadziłem?</summary>
+            <div class="faq-answer">
+              <p>Najlepszym sposobem dla początkujących jest metoda automatyzacji. Zamiast ręcznie spisywać każdy wydatek załóż darmowe konto w POCKET i zrób zdjęcie swojego paragonu zaraz po wyjściu ze sklepu. Wbudowany Asystent POCKET sam sczyta dane, skategoryzuje produkty i złoży je w czytelny budżet bez żadnego wysiłku.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Jak oszczędzać na codziennych zakupach bez rezygnowania z jakości, kiedy wszystko drożeje?</summary>
+            <div class="faq-answer">
+              <p>Kluczem do oszczędności przy inflacji jest śledzenie cen i mądre planowanie. POCKET analizuje Twoje paragony, zapamiętuje zniżki i uczy się historii cen ulubionych produktów w różnych sklepach. Asystent podpowiada na podstawie historycznych odczytów i ofert z gazetek, w którym markecie masz największe szanse złożyć swój najtańszy koszyk.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Czy naprawdę muszę wpisywać każdy wydatek, żeby mieć kontrolę nad pieniędzmi?</summary>
+            <div class="faq-answer">
+              <p>Nie, nie musisz. Ręczne wpisywanie jest czasochłonne i usypia dbałość o detale. Dzięki POCKET całą żmudną czynność wykonuje precyzyjny system uczenia maszynowego. Po zeskanowaniu paragonu Twoje wydatki zostają rozłożone do właściwych kategorii, takich jak m.in. chemia domowa, rozrywka i artykuły spożywcze.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Jak wykorzystać paragony do znalezienia największych oszczędności w moim budżecie?</summary>
+            <div class="faq-answer">
+              <p>Paragony to ukryte źródło danych o codziennych nawykach. Aplikacja POCKET przetwarza je w czytelne wykresy wizualne. Dzięki nim szybko spostrzeżesz, jak drastyczny procent budżetu konsumuje na przykład jedzenie na mieście i do których wydatków musisz zastosować większe cięcia.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">W jaki sposób POCKET przypomina o kończących się zapasach i planuje listę zakupów?</summary>
+            <div class="faq-answer">
+              <p>Wszystko bazuje na Twojej rutynie skanowania z dłuższego okresu czasu. Asystent POCKET układa je w trendy i poznaje Twój domowy cykl zakupowy. Wygeneruje on z wyprzedzeniem alert, o tym pomyśleć o dodatkowym załadunku nabiału do zautomatyzowanej Listy Zakupów.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Czy aplikacje do budżetu domowego są bezpieczne i jak POCKET chroni moje dane?</summary>
+            <div class="faq-answer">
+              <p>Tak, współczesne oprogramowania stosują najwyższe rygory prywatności używane w bezpiecznym sektorze IT. Zdjęcia Twoich paragonów nie uczestniczą w globalnym obiegu rynkowym i podlegają odizolowaniu. Żadne dane Twojego portfela nie ulegają bezprawnej reklamowej udostępnialności.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
 
+    <!-- ===== CTA ===== -->
+    <section id="cta" aria-labelledby="cta-heading">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="section-container">
+        <div class="cta-content reveal">
+          <h2 id="cta-heading">Dołącz do listy oczekujących POCKET</h2>
+          <p>Otrzymaj powiadomienie, gdy udostępnimy aplikację i zyskaj darmowy wczesny dostęp jako.</p>
+          
+          <form class="waitlist-form waitlist-form-center" action="#" method="POST" aria-label="Zapisz się do bazy testowej">
+            <label for="cta-email" class="sr-only">Podaj swój e-mail</label>
+            <div class="waitlist-input-group">
+              <input type="email" id="cta-email" name="email" placeholder="Twój e-mail" required class="waitlist-input">
+              <button type="submit" class="btn-primary btn-glow btn-large waitlist-btn">
+                Wczesny dostęp
+              </button>
+            </div>
+          </form>
+
+          <p class="cta-note">Bez spamu · 100% użytecznych nowości · Pamiętaj, darmowy plan na zawsze</p>
+        </div>
+      </div>
+    </section>
+    </main>
+
     <!-- ===== FOOTER ===== -->
-    <footer id="footer">
+    <footer id="footer" aria-label="Stopka">
       <div class="footer-container">
         <div class="footer-brand">
-          <a href="#hero" class="footer-logo">
-            <svg viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-logo-icon">
+          <a href="#hero" class="footer-logo" aria-label="Strona główna">
+            <svg viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-logo-icon" aria-hidden="true">
               <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="rgba(0,0,0,0.15)" transform="translate(2, 2)"/>
               <path d="M10 5H80V95L73 90L66 95L59 90L52 95L45 90L38 95L31 90L24 95L17 90L10 95V5Z" fill="#10b981" stroke="#065f46" stroke-width="2.5"/>
               <text x="45" y="40" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="38" font-weight="900" font-family="Inter">P</text>
@@ -856,11 +1015,11 @@
                 <rect y="18" width="35" height="3.5" rx="1.75" fill="white" fill-opacity="0.3"/>
               </g>
             </svg>
-            <span>POCKET</span>
+            <span aria-hidden="true">POCKET</span>
           </a>
           <p class="footer-tagline">Twoje paragony pod&nbsp;kontrolą.</p>
         </div>
-        <div class="footer-links">
+        <nav class="footer-links" aria-label="Stopka - nawigacja">
           <div class="footer-col">
             <h4>Produkt</h4>
             <a href="#features">Funkcje</a>
@@ -877,7 +1036,7 @@
             <h4>Kontakt</h4>
             <a href="mailto:kontakt@pocket.app">kontakt@pocket.app</a>
           </div>
-        </div>
+        </nav>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 POCKET. Wszelkie prawa zastrzeżone.</p>

@@ -1,5 +1,5 @@
 /* ====================================
-   FISKO LANDING PAGE — Main JS
+   POCKET LANDING PAGE — Main JS
    ==================================== */
 
 // --- Scroll Reveal (IntersectionObserver) ---
@@ -28,8 +28,10 @@ function initNavbar() {
   });
 
   toggle?.addEventListener('click', () => {
-    toggle.classList.toggle('active');
+    const isActive = toggle.classList.toggle('active');
     menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isActive);
+    menu.setAttribute('aria-hidden', !isActive);
   });
 
   // Close mobile menu on link click
@@ -37,6 +39,8 @@ function initNavbar() {
     link.addEventListener('click', () => {
       toggle.classList.remove('active');
       menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.setAttribute('aria-hidden', 'true');
     });
   });
 }
@@ -183,7 +187,11 @@ function addChartMessage(container, type) {
   });
 }
 
+// Obiekt do śledzenia aktywnych wykresów w celu przerysowania przy zmianie szerokości ekranu
+const activeCharts = {};
+
 function drawBarChart(canvasId, data) {
+  activeCharts[canvasId] = data;
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
 
@@ -383,7 +391,8 @@ function initPlannerInteraction() {
 
   items.forEach(item => {
     item.addEventListener('click', () => {
-      item.classList.toggle('checked');
+      const isChecked = item.classList.toggle('checked');
+      item.setAttribute('aria-pressed', isChecked ? 'true' : 'false');
       
       // Count unchecked
       checkedCount = document.querySelectorAll('.screen-planner-item.checked').length;
@@ -412,4 +421,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initPlannerAnimation();
   initPlannerInteraction();
+
+  // Resize handler for charts
+  window.addEventListener('resize', () => {
+    // debounce redraw
+    clearTimeout(window.resizeChartTimer);
+    window.resizeChartTimer = setTimeout(() => {
+      for (const [id, data] of Object.entries(activeCharts)) {
+        drawBarChart(id, data);
+      }
+    }, 150);
+  });
 });
