@@ -1,4 +1,4 @@
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -6,13 +6,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  // Weryfikacja klucza i miękki odrzut żądania w przeciwnym razie
-  if (!process.env.RESEND_API_KEY) {
-    console.error('BŁĄD: Brak klucza RESEND_API_KEY! Należy dodać zmienną Env i wykonać Redeploy na koncie Vercel.');
-    return res.status(500).json({ error: 'Brak aktywnego klucza API od strony serwera.' });
+  // Weryfikacja haseł aplikacji Gmail
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    console.error('BŁĄD: Brak zmiennych GMAIL_USER lub GMAIL_APP_PASSWORD z App Passwords.');
+    return res.status(500).json({ error: 'Brak konfiguracji skrzynek wysyłkowych SMTP po stronie serwera.' });
   }
-
-  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     const { email } = req.body;
@@ -21,8 +19,18 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Adres email jest wymagany.' });
     }
 
-    const { data, error } = await resend.emails.send({
-      from: 'POCKET Waitlist <onboarding@resend.dev>', 
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
+
+    const mailOptions = {
+      from: `"POCKET Team" <${process.env.GMAIL_USER}>`,
       to: email,
       subject: 'Dołączyłeś do POCKET. Teraz paragon rządzi budżetem 🔍',
       html: `
@@ -89,16 +97,13 @@ export default async function handler(req, res) {
     </table>
   </div>
       `,
-    });
+    };
 
-    if (error) {
-      console.error('Błąd Resend API:', error.message || error);
-      return res.status(400).json({ error: `Odrzucono przez Resend: ${error.message}` });
-    }
+    await transporter.sendMail(mailOptions);
 
-    return res.status(200).json({ success: true, message: 'Adres email pomyślnie dopisany!' });
+    return res.status(200).json({ success: true, message: 'Mail powitalny został wysłany!' });
   } catch (error) {
-    console.error('Wewnętrzny błąd serwera:', error);
-    return res.status(500).json({ error: 'Wystąpił nieoczekiwany kod błędu.' });
+    console.error('Błąd serwera (Nodemailer):', error);
+    return res.status(500).json({ error: 'Wystąpił nieoczekiwany błąd przy połączeniu SMTP Google.' });
   }
 }
