@@ -39,7 +39,7 @@ export default async function handler(req, res) {
          return res.status(400).json({ error: 'Ten adres e-mail zapisał się już na premierę POCKET!' });
       }
       console.error('Błąd Supabase:', dbError);
-      return res.status(500).json({ error: 'Zanotowano nieoczekiwany błąd podczas wstawiania danych do bazy.' });
+      return res.status(500).json({ error: 'Odrzut Supabase: ' + (dbError.message || dbError.details || JSON.stringify(dbError)) });
     }
 
     // --- PROCEDURA WYSYŁKI E-MAIL ---
