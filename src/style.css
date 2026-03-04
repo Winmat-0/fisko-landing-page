@@ -2072,6 +2072,7 @@ section {
 .proof-avatars {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .proof-avatars img {
@@ -2578,4 +2579,13 @@ details[open] .faq-question::after {
     font-size: 1.4rem;
   }
 
+  .proof-avatars {
+    display: none;
+  }
+
+  .waitlist-proof {
+    justify-content: center;
+    padding: 8px 16px;
+    gap: 0;
+  }
 }
