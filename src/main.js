@@ -162,7 +162,7 @@ function addChartMessage(container, type) {
   } else {
     headerText = 'W zeszłym miesiącu wydałeś na ubrania łącznie 348,79 zł. Oto rozkład:';
     chartData = {
-      labels: ['Tdz 1', 'Tdz 2', 'Tdz 3', 'Tdz 4'],
+      labels: ['Tydz. 1', 'Tydz. 2', 'Tydz. 3', 'Tydz. 4'],
       values: [89.99, 0, 159, 99.80],
       color: '#34b88a',
       label: 'zł'
