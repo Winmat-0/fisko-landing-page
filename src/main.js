@@ -191,11 +191,10 @@ function addChartMessage(container, type) {
   });
 }
 
-// Obiekt do śledzenia aktywnych wykresów w celu przerysowania przy zmianie szerokości ekranu
 const activeCharts = {};
 
 function drawBarChart(canvasId, data) {
-  activeCharts[canvasId] = data;
+  activeCharts[canvasId] = { data, type: 'bar' };
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
 
@@ -315,7 +314,7 @@ function drawBarChart(canvasId, data) {
 }
 
 function drawLineChart(canvasId, data) {
-  activeCharts[canvasId] = data;
+  activeCharts[canvasId] = { data, type: 'line' };
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
 
@@ -666,13 +665,22 @@ document.addEventListener('DOMContentLoaded', () => {
   initWaitlistForms();
   updateWaitlistCount();
 
-  // Resize handler for charts
+  // Resize handler for charts (track width only to avoid mobile scroll redraws)
+  let lastWidth = window.innerWidth;
   window.addEventListener('resize', () => {
+    const currentWidth = window.innerWidth;
+    if (currentWidth === lastWidth) return;
+    lastWidth = currentWidth;
+
     // debounce redraw
     clearTimeout(window.resizeChartTimer);
     window.resizeChartTimer = setTimeout(() => {
-      for (const [id, data] of Object.entries(activeCharts)) {
-        drawBarChart(id, data);
+      for (const [id, chartInfo] of Object.entries(activeCharts)) {
+        if (chartInfo.type === 'line') {
+          drawLineChart(id, chartInfo.data);
+        } else {
+          drawBarChart(id, chartInfo.data);
+        }
       }
     }, 150);
   });
