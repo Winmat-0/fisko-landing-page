@@ -1,5 +1,5 @@
 /* ====================================
-   POCKET LANDING PAGE — Main JS
+   POCKET LANDING PAGE - Main JS
    ==================================== */
 
 // --- Scroll Reveal (IntersectionObserver) ---
@@ -152,18 +152,18 @@ function addChartMessage(container, type) {
   let headerText, chartData;
 
   if (type === 'yearly') {
-    headerText = 'Oto zestawienie Twoich wydatków za zeszły rok w skali miesięcznej:';
+    headerText = 'Oto jak rosły Twoje oszczędności z <strong>POCKET</strong> w ciągu ostatnich 1.5 roku:';
     chartData = {
-      labels: ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'],
-      values: [980, 1120, 870, 1340, 950, 1100, 1250, 890, 1050, 1180, 1420, 1560],
+      labels: ['Lip 24', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru', 'Sty 25', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'],
+      values: [60.20, 145.50, 210.00, 245.80, 410.20, 680.00, 920.40, 1050.00, 1520.50, 1980.20, 2150.00, 2380.50, 2820.00, 3450.80, 3880.00, 4220.50, 4950.00, 5630.40],
       color: '#0CA8B9',
       label: 'zł'
     };
   } else {
-    headerText = 'W zeszłym miesiącu wydałeś na ubrania łącznie 347,80 zł. Oto rozkład:';
+    headerText = 'W zeszłym miesiącu wydałeś na ubrania łącznie 348,79 zł. Oto rozkład:';
     chartData = {
       labels: ['Tydzień 1', 'Tydzień 2', 'Tydzień 3', 'Tydzień 4'],
-      values: [89, 0, 159, 99.80],
+      values: [89.99, 0, 159, 99.80],
       color: '#34b88a',
       label: 'zł'
     };
@@ -183,7 +183,11 @@ function addChartMessage(container, type) {
 
   // Draw chart on next frame
   requestAnimationFrame(() => {
-    drawBarChart(`chart-${type}`, chartData);
+    if (type === 'yearly') {
+      drawLineChart(`chart-${type}`, chartData);
+    } else {
+      drawBarChart(`chart-${type}`, chartData);
+    }
   });
 }
 
@@ -214,7 +218,7 @@ function drawBarChart(canvasId, data) {
   
   const barCount = data.values.length;
   // Dynamic gap depending on number of bars
-  const gapRatio = barCount > 6 ? 0.4 : 0.6; // More gap if fewer bars
+  const gapRatio = barCount > 6 ? 0.3 : 0.6; // More space for bars if many
   const totalBarSpace = chartW / barCount;
   const barWidth = Math.min(totalBarSpace * (1 - gapRatio), 40);
   const barGap = totalBarSpace * gapRatio;
@@ -253,24 +257,42 @@ function drawBarChart(canvasId, data) {
       const y = h - padding.bottom - barH;
 
       if (barH > 0) {
-        // Gradient bar
+        ctx.save();
+        
+        // Subtle Glow
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = data.color + '33';
+        
+        // Main Gradient bar
         const grad = ctx.createLinearGradient(x, y, x, y + barH);
         grad.addColorStop(0, data.color);
-        grad.addColorStop(1, data.color + '66'); 
+        grad.addColorStop(1, data.color + '44'); 
         ctx.fillStyle = grad;
         
         ctx.beginPath();
-        // Just round the top corners
-        roundRect(ctx, x, y, barWidth, barH, Math.min(4, barWidth / 2));
+        roundRect(ctx, x, y, barWidth, barH, Math.min(5, barWidth / 2));
         ctx.fill();
+
+        // Glassy top highlight
+        const highlightGrad = ctx.createLinearGradient(x, y, x, y + 6);
+        highlightGrad.addColorStop(0, 'rgba(255,255,255,0.3)');
+        highlightGrad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = highlightGrad;
+        ctx.beginPath();
+        roundRect(ctx, x, y, barWidth, Math.min(6, barH), Math.min(5, barWidth / 2));
+        ctx.fill();
+
+        ctx.restore();
       }
 
       // Value on top
       if (progress > 0.8 && val > 0) {
         ctx.fillStyle = '#ffffff';
-        ctx.font = `600 ${Math.max(10, Math.min(12, barWidth * 0.5))}px Inter, sans-serif`;
+        // Smaller font if many bars to avoid overlap
+        const fontSize = barCount > 6 ? 9 : Math.max(10, Math.min(12, barWidth * 0.5));
+        ctx.font = `600 ${fontSize}px Inter, sans-serif`;
         ctx.textAlign = 'center';
-        const valText = val >= 100 ? Math.round(val).toString() : val.toFixed(0);
+        const valText = `${val.toFixed(2)} ${data.label}`;
         ctx.fillText(valText, x + barWidth / 2, y - 8);
       }
 
@@ -280,6 +302,125 @@ function drawBarChart(canvasId, data) {
       ctx.textAlign = 'center';
       ctx.fillText(data.labels[i], x + barWidth / 2, h - padding.bottom + 16);
     });
+
+    if (progress < 1) {
+      requestAnimationFrame(draw);
+    }
+  }
+
+  requestAnimationFrame(draw);
+}
+
+function drawLineChart(canvasId, data) {
+  activeCharts[canvasId] = data;
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+
+  const w = rect.width;
+  const h = rect.height;
+  
+  const padding = { top: 35, right: 30, bottom: 35, left: 30 };
+  const chartW = w - padding.left - padding.right;
+  const chartH = h - padding.top - padding.bottom;
+  
+  const maxVal = Math.max(...data.values) * 1.2;
+  const minVal = 0;
+
+  let progress = 0;
+  const animDuration = 1200;
+  const startTime = performance.now();
+
+  function draw(now) {
+    const elapsed = now - startTime;
+    progress = Math.min(elapsed / animDuration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    ctx.clearRect(0, 0, w, h);
+
+    // Baseline
+    ctx.strokeStyle = '#2a3b4c';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padding.left, h - padding.bottom);
+    ctx.lineTo(w - padding.right, h - padding.bottom);
+    ctx.stroke();
+
+    const getX = (i) => padding.left + (i / (data.values.length - 1)) * chartW;
+    const getY = (val) => h - padding.bottom - (val / maxVal) * chartH * eased;
+
+    // Draw area under line
+    if (progress > 0) {
+      ctx.beginPath();
+      ctx.moveTo(getX(0), h - padding.bottom);
+      for (let i = 0; i < data.values.length; i++) {
+        ctx.lineTo(getX(i), getY(data.values[i]));
+      }
+      ctx.lineTo(getX(data.values.length - 1), h - padding.bottom);
+      const areaGrad = ctx.createLinearGradient(0, padding.top, 0, h - padding.bottom);
+      areaGrad.addColorStop(0, data.color + '33');
+      areaGrad.addColorStop(1, data.color + '00');
+      ctx.fillStyle = areaGrad;
+      ctx.fill();
+    }
+
+    // Draw line
+    ctx.strokeStyle = data.color;
+    ctx.lineWidth = 3;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    for (let i = 0; i < data.values.length; i++) {
+      const x = getX(i);
+      const y = getY(data.values[i]);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // Draw points and values
+    if (progress > 0.8) {
+      data.values.forEach((val, i) => {
+        const x = getX(i);
+        const y = getY(val);
+
+        // Point
+        ctx.fillStyle = data.color;
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Label below (skip if too many points)
+        const skipLabels = data.values.length > 10;
+        if (!skipLabels || i % 3 === 0 || i === data.values.length - 1) {
+          ctx.fillStyle = '#8899aa';
+          ctx.font = '500 10px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(data.labels[i], x, h - padding.bottom + 18);
+        }
+
+        // Value on top (skip if too many points to avoid overlap)
+        const skipValues = data.values.length > 8;
+        const valueInterval = data.values.length > 15 ? 4 : 2;
+        
+        if (!skipValues || i % valueInterval === 0 || i === data.values.length - 1) {
+          ctx.fillStyle = '#ffffff';
+          ctx.font = '600 10px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(`${val.toFixed(2)} ${data.label}`, x, y - 12);
+        }
+      });
+    }
 
     if (progress < 1) {
       requestAnimationFrame(draw);

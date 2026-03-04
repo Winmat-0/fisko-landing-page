@@ -74,7 +74,7 @@ export default async function handler(req, res) {
             Twoje paragony. Twoje oszczędności. Twoja kolej.
           </h1>
           <p style="margin:0; font-size:14px; color:#9ca3af;">
-            Dołączyłeś do listy oczekujących POCKET – aplikacji, która z paragonów robi mapę Twojego budżetu.
+            Dołączyłeś do listy oczekujących POCKET - aplikacji, która z paragonów robi mapę Twojego budżetu.
           </p>
         </td>
       </tr>
