@@ -152,17 +152,17 @@ function addChartMessage(container, type) {
   let headerText, chartData;
 
   if (type === 'yearly') {
-    headerText = 'Oto jak rosły Twoje oszczędności z <strong>POCKET</strong> w ciągu ostatnich 1.5 roku:';
+    headerText = 'Oto jak rosły Twoje oszczędności z <strong>POCKET</strong> w ciągu ostatnich 6 miesięcy:';
     chartData = {
-      labels: ['Lip 24', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru', 'Sty 25', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'],
-      values: [60.20, 145.50, 210.00, 245.80, 410.20, 680.00, 920.40, 1050.00, 1520.50, 1980.20, 2150.00, 2380.50, 2820.00, 3450.80, 3880.00, 4220.50, 4950.00, 5630.40],
+      labels: ['Lip 25', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'],
+      values: [2820.00, 3450.80, 3880.00, 4220.50, 4950.00, 5630.40],
       color: '#0CA8B9',
       label: 'zł'
     };
   } else {
     headerText = 'W zeszłym miesiącu wydałeś na ubrania łącznie 348,79 zł. Oto rozkład:';
     chartData = {
-      labels: ['Tydzień 1', 'Tydzień 2', 'Tydzień 3', 'Tydzień 4'],
+      labels: ['Tdz 1', 'Tdz 2', 'Tdz 3', 'Tdz 4'],
       values: [89.99, 0, 159, 99.80],
       color: '#34b88a',
       label: 'zł'
@@ -288,17 +288,20 @@ function drawBarChart(canvasId, data) {
       // Value on top
       if (progress > 0.8 && val > 0) {
         ctx.fillStyle = '#ffffff';
-        // Smaller font if many bars to avoid overlap
-        const fontSize = barCount > 6 ? 9 : Math.max(10, Math.min(12, barWidth * 0.5));
-        ctx.font = `600 ${fontSize}px Inter, sans-serif`;
+        // Dynamic font size based on canvas width to prevent overlap
+        const responsiveFontSize = Math.max(9, Math.min(12, w / 40));
+        ctx.font = `600 ${responsiveFontSize}px Inter, sans-serif`;
         ctx.textAlign = 'center';
-        const valText = `${val.toFixed(2)} ${data.label}`;
+        // Round to whole number to save space
+        const valText = `${Math.round(val)} ${data.label}`;
         ctx.fillText(valText, x + barWidth / 2, y - 8);
       }
 
       // Label below axis
       ctx.fillStyle = '#8899aa';
-      ctx.font = `500 ${Math.max(9, Math.min(11, barWidth * 0.4))}px Inter, sans-serif`;
+      // Dynamic font size for labels
+      const labelFontSize = Math.max(8, Math.min(11, w / 45));
+      ctx.font = `500 ${labelFontSize}px Inter, sans-serif`;
       ctx.textAlign = 'center';
       ctx.fillText(data.labels[i], x + barWidth / 2, h - padding.bottom + 16);
     });
@@ -404,7 +407,8 @@ function drawLineChart(canvasId, data) {
         const skipLabels = data.values.length > 10;
         if (!skipLabels || i % 3 === 0 || i === data.values.length - 1) {
           ctx.fillStyle = '#8899aa';
-          ctx.font = '500 10px Inter, sans-serif';
+          const responsiveLabelFontSize = Math.max(8, Math.min(10, w / 45));
+          ctx.font = `500 ${responsiveLabelFontSize}px Inter, sans-serif`;
           ctx.textAlign = 'center';
           ctx.fillText(data.labels[i], x, h - padding.bottom + 18);
         }
@@ -415,9 +419,17 @@ function drawLineChart(canvasId, data) {
         
         if (!skipValues || i % valueInterval === 0 || i === data.values.length - 1) {
           ctx.fillStyle = '#ffffff';
-          ctx.font = '600 10px Inter, sans-serif';
+          const responsiveValueFontSize = Math.max(9, Math.min(10, w / 40));
+          ctx.font = `600 ${responsiveValueFontSize}px Inter, sans-serif`;
           ctx.textAlign = 'center';
-          ctx.fillText(`${val.toFixed(2)} ${data.label}`, x, y - 12);
+          
+          // Round to integer and show unit on all points for consistency
+          const roundVal = Math.round(val);
+          const valText = `${roundVal} ${data.label}`;
+          
+          // Zigzag (alternate y position) for better legibility on small screens
+          const zigzagOffset = (i % 2 === 0) ? 12 : 24;
+          ctx.fillText(valText, x, y - zigzagOffset);
         }
       });
     }

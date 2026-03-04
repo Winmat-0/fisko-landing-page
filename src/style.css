@@ -1772,42 +1772,46 @@ section {
   justify-self: center;
 }
 
-/* Planner feature cards */
+/* Planner feature mini-cards */
 .planner-features {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  justify-content: center;
 }
 
-.planner-feature-card {
+.pf-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 18px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 20px 20px;
-  transition: all 0.4s var(--ease);
+  transition: all 0.3s var(--ease);
 }
 
-.planner-feature-card:hover {
-  transform: translateY(-3px);
+.pf-card:hover {
   border-color: var(--border-light);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .pf-icon {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-.planner-feature-card h4 {
-  font-size: 1rem;
+.pf-card h4 {
+  font-size: 0.9rem;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
-.planner-feature-card p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+.pf-card p {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.4;
 }
 
 /* ====================================
@@ -2015,7 +2019,7 @@ section {
 }
 
 .waitlist-form-center {
-  max-width: 480px;
+  max-width: 560px;
   margin: 32px auto 0;
 }
 
@@ -2179,6 +2183,183 @@ details[open] .faq-question::after {
 }
 
 /* ====================================
+   HERO TRUST SIGNAL
+   ==================================== */
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.hero-subtitle-main,
+.hero-subtitle-detail {
+  display: block;
+}
+
+.hero-subtitle-detail {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+}
+
+/* ====================================
+   FEATURE INLINE CTA
+   ==================================== */
+.feature-cta {
+  margin-top: 24px;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  display: inline-flex;
+}
+
+/* ====================================
+   SECONDARY BUTTON
+   ==================================== */
+.btn-secondary {
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: default;
+}
+
+/* ====================================
+   PRICING SECTION
+   ==================================== */
+#pricing {
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-subtle) 100%);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  position: relative;
+  transition: all 0.4s var(--ease);
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.pricing-free {
+  border-color: var(--green);
+  box-shadow: 0 0 30px hsl(152 60% 45% / 0.08);
+}
+
+.pricing-free:hover {
+  box-shadow: var(--shadow-md), 0 0 40px hsl(152 60% 45% / 0.15);
+}
+
+.pricing-pro {
+  opacity: 0.7;
+  border-color: var(--border-light);
+}
+
+.pricing-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: hsl(152 60% 45% / 0.15);
+  color: var(--green);
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.pricing-badge-soon {
+  background: hsl(215 50% 35% / 0.2);
+  color: var(--text-muted);
+}
+
+.pricing-card h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.pricing-price {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.pricing-price span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.pricing-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.pricing-btn {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 0.95rem;
+}
+
+.pricing-btn-disabled {
+  cursor: default;
+  opacity: 0.5;
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 14px 24px;
+}
+
+/* ====================================
+   PERFORMANCE: content-visibility
+   ==================================== */
+#problems, #features, #assistant-demo, #planner-demo, #pricing, #faq, #cta {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* ====================================
    RESPONSIVE
    ==================================== */
 @media (max-width: 1024px) {
@@ -2232,6 +2413,37 @@ details[open] .faq-question::after {
   .footer-container {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .how-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .how-step {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .how-step-arrow {
+    transform: rotate(90deg);
+    margin-top: 0;
+    padding: 8px 0;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .hero-trust {
+    justify-content: center;
+  }
+
+  .feature-cta {
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -2297,7 +2509,7 @@ details[open] .faq-question::after {
     align-items: center;
     justify-content: center;
     gap: 24px;
-    margin-top: 16px;
+    margin-top: 32px;
   }
 
   .hero-stat {
@@ -2307,6 +2519,10 @@ details[open] .faq-question::after {
   .hero-stat-divider {
     width: 1px;
     height: 30px;
+  }
+
+  .hero-subtitle-detail {
+    display: none;
   }
 
   .floating-card {
