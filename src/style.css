@@ -1575,7 +1575,7 @@ section {
 }
 
 .chat-demo-container {
-  max-width: 560px;
+    max-width: 560px;
   margin: 0 auto;
 }
 
@@ -1633,7 +1633,7 @@ section {
 }
 
 .chat-messages {
-  padding: 20px;
+  padding: 16px;
   min-height: 300px;
   max-height: 480px;
   overflow-y: auto;
@@ -1644,7 +1644,7 @@ section {
 
 .chat-message {
   display: flex;
-  max-width: 85%;
+  max-width: 95%;
 }
 
 .chat-message.assistant {
@@ -1656,7 +1656,7 @@ section {
 }
 
 .chat-bubble {
-  padding: 14px 18px;
+  padding: 12px 14px;
   border-radius: 20px;
   font-size: 0.95rem;
   line-height: 1.5;
@@ -1683,13 +1683,15 @@ section {
 }
 
 .chat-bubble-chart {
-  margin-top: 16px;
-  width: 100%;
+  margin-top: 12px;
+  margin-left: -6px;
+  margin-right: -6px;
+  width: calc(100% + 12px);
 }
 
 .chat-bubble-chart canvas {
   width: 100%;
-  height: 190px;
+  height: 240px;
   display: block;
 }
 
