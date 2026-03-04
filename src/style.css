@@ -1182,7 +1182,7 @@ button.screen-planner-item {
 }
 
 .hero-text h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.6rem, 5.5vw, 3.8rem);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -2057,12 +2057,16 @@ section {
 }
 
 .waitlist-proof {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
   margin-top: 24px;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  background: hsl(215 25% 15% / 0.5);
+  padding: 8px 16px 8px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border-light);
 }
 
 .proof-avatars {
@@ -2076,15 +2080,21 @@ section {
   border-radius: 50%;
   border: 2px solid var(--bg);
   margin-left: -8px;
+  transition: transform 0.3s var(--ease);
 }
 
 .proof-avatars img:first-child {
   margin-left: 0;
 }
 
+.proof-text {
+  text-align: left;
+  white-space: nowrap;
+}
+
 .proof-text strong {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ====================================
@@ -2556,7 +2566,8 @@ details[open] .faq-question::after {
 
 @media (max-width: 480px) {
   .hero-text h1 {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
+    letter-spacing: -0.03em;
   }
 
   .feature-text h3 {
