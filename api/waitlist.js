@@ -83,7 +83,7 @@ export default async function handler(req, res) {
         <td style="padding:20px 16px; border-radius:16px; background:radial-gradient(circle at top,#0f172a,#020617); border:1px solid #1e293b;">
           <p style="margin:0 0 8px; font-size:13px; color:#9ca3af;">W skrócie:</p>
           <ul style="margin:0; padding-left:18px; font-size:13px; color:#e5e7eb;">
-            <li>skanujesz paragony, a Asystent AI sam kategoryzuje wydatki,</li>
+            <li>skanujesz paragony, a Asystent POCKET sam kategoryzuje wydatki,</li>
             <li>Planer Zakupów podpowiada, kiedy i gdzie kupić taniej to, co i tak kupujesz,</li>
             <li>dostajesz jasne alerty, zanim budżet wymknie się spod kontroli.</li>
           </ul>
