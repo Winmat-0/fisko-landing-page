@@ -2,9 +2,17 @@
    POCKET LANDING PAGE - Main JS
    ==================================== */
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // --- Scroll Reveal (IntersectionObserver) ---
 function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
+
+  if (prefersReducedMotion) {
+    reveals.forEach((el) => el.classList.add('visible'));
+    return;
+  }
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -23,15 +31,25 @@ function initNavbar() {
   const toggle = document.getElementById('mobileToggle');
   const menu = document.getElementById('mobileMenu');
 
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+  const updateNavbar = () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
-  });
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }, { passive: true });
+  updateNavbar();
 
   toggle?.addEventListener('click', () => {
     const isActive = toggle.classList.toggle('active');
     menu.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isActive);
-    menu.setAttribute('aria-hidden', !isActive);
+    toggle.setAttribute('aria-expanded', String(isActive));
+    menu.setAttribute('aria-hidden', String(!isActive));
   });
 
   // Close mobile menu on link click
@@ -457,13 +475,16 @@ function roundRect(ctx, x, y, w, h, r) {
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
+      const href = anchor.getAttribute('href');
+      if (!href || href === '#') return;
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
       e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        const navHeight = document.getElementById('navbar').offsetHeight;
-        const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
+      const navHeight = document.getElementById('navbar').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 }
@@ -475,9 +496,10 @@ function initParallax() {
   const glow1 = hero?.querySelector('.hero-glow-1');
   const glow2 = hero?.querySelector('.hero-glow-2');
 
-  if (!hero) return;
+  if (!hero || prefersReducedMotion) return;
 
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+  const onScroll = () => {
     const scrollY = window.scrollY;
     const heroH = hero.offsetHeight;
 
@@ -487,13 +509,22 @@ function initParallax() {
       if (glow1) glow1.style.transform = `translate(${ratio * -20}px, ${ratio * 20}px)`;
       if (glow2) glow2.style.transform = `translate(${ratio * 15}px, ${ratio * -15}px)`;
     }
-  });
+
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
 }
 
 // --- Planner items animation ---
 function initPlannerAnimation() {
   const items = document.querySelectorAll('.screen-planner-item');
-  const featureCards = document.querySelectorAll('.planner-feature-card');
+  const featureCards = document.querySelectorAll('.pf-card');
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

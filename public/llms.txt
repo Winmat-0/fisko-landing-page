@@ -1,0 +1,20 @@
+# POCKET
+
+POCKET to aplikacja do skanowania paragonow i kontroli budzetu domowego.
+
+## Najwazniejsze strony
+- https://try-pocket.vercel.app/
+- https://try-pocket.vercel.app/polityka-prywatnosci
+- https://try-pocket.vercel.app/regulamin
+
+## Zakres produktu (stan na 2026-03-07)
+- Skanowanie paragonow i automatyczne rozpoznanie danych zakupowych.
+- Kategoryzacja wydatkow i historia cen produktow.
+- Planer zakupow i funkcje Pro: w rozwoju.
+
+## Kontakt
+- trypocketapp@gmail.com
+
+## Polityka danych
+- Na stronie zapisu przetwarzany jest adres e-mail.
+- Zasady przetwarzania: polityka prywatnosci i regulamin.

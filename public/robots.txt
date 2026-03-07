@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Allow: /llms.txt
 Sitemap: https://try-pocket.vercel.app/sitemap.xml
