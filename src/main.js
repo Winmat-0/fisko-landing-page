@@ -664,7 +664,7 @@ async function updateWaitlistCount() {
     const data = await res.json();
     
     if (data.count) {
-      const start = parseInt(countSpan.textContent) || 37;
+      const start = parseInt(countSpan.textContent) || 0;
       const end = data.count;
       if (start === end) return;
       
