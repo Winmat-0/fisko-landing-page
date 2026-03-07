@@ -414,7 +414,7 @@ button.screen-planner-item {
 
 .screen-app-sub {
   font-size: 0.55rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 /* Stats row */
@@ -551,7 +551,7 @@ button.screen-planner-item {
 
 .screen-receipt-date {
   font-size: 0.5rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   display: block;
 }
 
@@ -588,7 +588,7 @@ button.screen-planner-item {
   background: hsl(215 20% 11%);
   border-radius: 6px;
   font-size: 0.55rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   margin-bottom: 6px;
 }
 
@@ -634,7 +634,7 @@ button.screen-planner-item {
 
 .screen-mini-stat-label {
   font-size: 0.45rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   font-weight: 500;
@@ -659,7 +659,7 @@ button.screen-planner-item {
   align-items: center;
   gap: 5px;
   font-size: 0.5rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .screen-legend-line {
@@ -713,7 +713,7 @@ button.screen-planner-item {
   background: hsl(215 20% 11%);
   border-radius: 8px;
   font-size: 0.5rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   cursor: pointer;
 }
 
@@ -768,7 +768,7 @@ button.screen-planner-item {
 
 .screen-analyzer-field-label {
   font-size: 0.45rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.03em;
   display: block;
@@ -878,7 +878,7 @@ button.screen-planner-item {
 
 .screen-price-label {
   font-size: 0.5rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   display: block;
 }
 
@@ -891,7 +891,7 @@ button.screen-planner-item {
 
 .screen-price-store {
   font-size: 0.5rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .screen-product-list {
@@ -943,7 +943,7 @@ button.screen-planner-item {
 
 .screen-planner-hint {
   font-size: 0.5rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   text-align: center;
   margin-bottom: 6px;
   animation: pulse 2s ease-in-out infinite;
@@ -976,7 +976,7 @@ button.screen-planner-item {
 
 .screen-planner-item.checked .spi-name {
   text-decoration: line-through;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .screen-planner-item.checked .spi-check {
@@ -1027,7 +1027,7 @@ button.screen-planner-item {
 
 .spi-meta {
   font-size: 0.5rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   margin-top: 1px;
 }
 
@@ -1089,7 +1089,7 @@ button.screen-planner-item {
   margin-top: 6px;
   border-top: 1px solid var(--border);
   font-size: 0.6rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .screen-planner-cta {
@@ -1274,7 +1274,7 @@ button.screen-planner-item {
 
 .hero-stat-label {
   font-size: 0.8rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   display: block;
   margin-top: 2px;
 }
@@ -1307,7 +1307,7 @@ button.screen-planner-item {
 
 .screen-paragony-label {
   font-size: 0.5rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   display: block;
 }
 
@@ -1364,7 +1364,7 @@ button.screen-planner-item {
 
 .floating-card-sub {
   font-size: 0.7rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   display: block;
   margin-top: 1px;
 }
@@ -1618,7 +1618,7 @@ section {
 
 .chat-header-status {
   font-size: 0.75rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1812,7 +1812,7 @@ section {
 
 .pf-card p {
   font-size: 0.8rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   line-height: 1.4;
 }
 
@@ -1968,7 +1968,7 @@ section {
 
 .footer-tagline {
   font-size: 0.9rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .footer-links {
@@ -1977,10 +1977,10 @@ section {
   gap: 32px;
 }
 
-.footer-col h4 {
+.footer-col-title {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text);
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1988,8 +1988,8 @@ section {
 
 .footer-col a {
   display: block;
-  font-size: 0.85rem;
-  color: var(--text-dim);
+  font-size: 0.9rem;
+  color: var(--text-muted);
   margin-bottom: 10px;
   transition: color 0.2s;
 }
@@ -2008,7 +2008,7 @@ section {
 
 .footer-bottom p {
   font-size: 0.8rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 /* ====================================
@@ -2018,6 +2018,14 @@ section {
   margin-top: 32px;
   position: relative;
   z-index: 10;
+}
+
+.waitlist-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .waitlist-form-center {
@@ -2064,7 +2072,7 @@ section {
   gap: 12px;
   margin-top: 24px;
   font-size: 0.9rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   background: hsl(215 25% 15% / 0.5);
   padding: 8px 16px 8px 12px;
   border-radius: 100px;
@@ -2077,18 +2085,23 @@ section {
   flex-shrink: 0;
 }
 
-.proof-avatars img {
+.proof-avatar {
   width: 28px;
   height: 28px;
   border-radius: 50%;
   border: 2px solid var(--bg);
   margin-left: -8px;
-  transition: transform 0.3s var(--ease);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: white;
 }
 
-.proof-avatars img:first-child {
-  margin-left: 0;
-}
+.proof-avatar:nth-child(1) { background: #0CA8B9; margin-left: 0; }
+.proof-avatar:nth-child(2) { background: #34b88a; }
+.proof-avatar:nth-child(3) { background: #1e3a5f; }
 
 .proof-text {
   text-align: left;
@@ -2186,10 +2199,10 @@ details[open] .faq-question::after {
 
 .btn-loader {
   font-size: 0.95rem;
-  animation: pulse 1.5s infinite;
+  animation: pulseOpacity 1.5s infinite;
 }
 
-@keyframes pulse {
+@keyframes pulseOpacity {
   0% { opacity: 0.6; }
   50% { opacity: 1; }
   100% { opacity: 0.6; }
@@ -2203,8 +2216,23 @@ details[open] .faq-question::after {
   align-items: center;
   gap: 8px;
   margin-top: 12px;
-  font-size: 0.8rem;
-  color: var(--text-dim);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.hero-trust-list {
+  margin-top: 14px;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.hero-trust-list li::before {
+  content: "✓";
+  color: var(--green-light);
+  margin-right: 8px;
 }
 
 .hero-subtitle-main,
@@ -2215,7 +2243,7 @@ details[open] .faq-question::after {
 .hero-subtitle-detail {
   margin-top: 8px;
   font-size: 0.95rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 /* ====================================
@@ -2231,7 +2259,7 @@ details[open] .faq-question::after {
 /* ====================================
    SECONDARY BUTTON
    ==================================== */
-.btn-secondary {
+.pricing-btn-disabled {
   padding: 14px 28px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-light);
@@ -2320,7 +2348,7 @@ details[open] .faq-question::after {
 .pricing-price span {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-dim);
+  color: var(--text-muted);
 }
 
 .pricing-desc {
@@ -2372,6 +2400,19 @@ details[open] .faq-question::after {
   contain-intrinsic-size: auto 800px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
 /* ====================================
    RESPONSIVE
    ==================================== */
@@ -2429,20 +2470,18 @@ details[open] .faq-question::after {
   }
 
   .how-steps {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .how-step {
-    max-width: 400px;
+    max-width: 520px;
     width: 100%;
+    margin: 0 auto;
   }
 
-  .how-step-arrow {
-    transform: rotate(90deg);
-    margin-top: 0;
-    padding: 8px 0;
+  .knowledge-grid {
+    grid-template-columns: 1fr;
   }
 
   .pricing-grid {
@@ -2452,6 +2491,13 @@ details[open] .faq-question::after {
 
   .hero-trust {
     justify-content: center;
+  }
+
+  .hero-trust-list {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
   }
 
   .feature-cta {
@@ -2554,21 +2600,20 @@ details[open] .faq-question::after {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  
+
   .footer-col {
     text-align: center;
   }
 
-  .footer-col h4 {
+  .footer-col-title {
     margin-bottom: 12px;
   }
-  
+
   .footer-col a {
     display: inline-block;
     padding: 8px 16px;
     margin-bottom: 4px;
   }
-
 }
 
 @media (max-width: 480px) {
@@ -2591,3 +2636,6 @@ details[open] .faq-question::after {
     gap: 0;
   }
 }
+
+
+
